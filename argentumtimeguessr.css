@@ -1,0 +1,384 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #1e1e1e;
+  }
+  
+  .frame {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+  .frame-1 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 4px solid #000000;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    height: 60px;
+  }
+  
+  .box-small {
+    width: 10%;
+    height: 100%;
+    background-color: #888888;
+    flex-shrink: 0;
+  }
+  
+  .box-large-black {
+    flex-grow: 1;
+    height: 100%;
+    background-color: #000000;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex-grow: 1;
+  }
+  
+  .card {
+    height: 100%;
+    background-color: #888888;
+  }
+  
+  .frame-2 {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 4px solid #000000;
+  }
+  
+  .top-bar {
+    width: 100%;
+    height: 80px;
+    display: flex;
+  }
+  
+  .black-box {
+    width: 45%;
+    height: 100%;
+    background-color: #000000;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .form-card {
+    width: 60%;
+    max-width: 550px;
+    height: 420px;
+    background-color: #d8d3d3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 30px;
+  }
+  
+  .field {
+    width: 80%;
+    height: 45px;
+    background-color: #ffffff;
+  }
+  
+  .btn {
+    width: 60%;
+    height: 50px;
+    background-color: #0d47ff;
+    margin-top: 25px;
+  }
+  
+  .frame-3 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 4px solid #000000;
+  }
+  
+  .top-bar-3 {
+    width: 100%;
+    height: 65px;
+  }
+  
+  .black-box-3 {
+    width: 40%;
+    height: 100%;
+    background-color: #000000;
+  }
+  
+  .split-content {
+    flex: 1;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .left-col {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .media-box {
+    flex: 1;
+    background-color: #8d7b78;
+  }
+  
+  .blue-bar {
+    height: 85px;
+    background-color: #0d47ff;
+  }
+  
+  .right-col {
+    width: 55%;
+    display: flex;
+  }
+  
+  .list-card {
+    width: 100%;
+    height: 100%;
+    background-color: #8d7b78;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .list-header {
+    height: 38px;
+    background-color: #ffffff;
+    margin-bottom: 6px;
+  }
+  
+  .list-row {
+    display: flex;
+    gap: 12px;
+    height: 28px;
+  }
+  
+  .row-sq {
+    width: 28px;
+    height: 100%;
+    background-color: #ffffff;
+    flex-shrink: 0;
+  }
+  
+  .row-bar {
+    flex: 1;
+    height: 100%;
+    background-color: #ffffff;
+  }
+  
+  .frame-4 {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 4px solid #000000;
+  }
+  
+  .top-bar-4 {
+    width: 100%;
+    height: 65px;
+  }
+  
+  .black-box-4 {
+    width: 35%;
+    height: 100%;
+    background-color: #000000;
+  }
+  
+  .main-content-4 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .center-card-4 {
+    width: 65%;
+    max-width: 600px;
+    height: 380px;
+    background-color: #888888;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 20px;
+  }
+  
+  .white-box-4 {
+    width: 85%;
+    height: 70px;
+    background-color: #ffffff;
+    margin-bottom: 45px;
+  }
+  
+  .blue-btn-4 {
+    width: 50%;
+    height: 55px;
+    background-color: #0d47ff;
+  }
+  
+  .frame-5 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 4px solid #000000;
+  }
+  
+  .top-bar-5 {
+    width: 100%;
+    height: 65px;
+  }
+  
+  .black-box-5 {
+    width: 45%;
+    height: 100%;
+    background-color: #000000;
+  }
+  
+  .content-5 {
+    flex: 1;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .photo-col {
+    width: 48%;
+    height: 75%;
+  }
+  
+  .photo-box {
+    width: 100%;
+    height: 100%;
+    background-color: #888888;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-family: sans-serif;
+  }
+  
+  .side-col {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .top-rect {
+    width: 100%;
+    height: 70px;
+    background-color: #888888;
+  }
+  
+  .map-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .map-top {
+    height: 140px;
+    background-color: #c4c4c4;
+  }
+  
+  .map-bottom {
+    height: 50px;
+    background-color: #e0e0e0;
+  }
+  
+  .slider-bar {
+    height: 25px;
+    background-color: #888888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pin {
+    width: 14px;
+    height: 35px;
+    background-color: #555555;
+    border-radius: 10px;
+  }
+  
+  .frame-6 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .top-bar-6 {
+    width: 100%;
+    height: 65px;
+  }
+  
+  .black-box-6 {
+    width: 35%;
+    height: 100%;
+    background-color: #000000;
+  }
+  
+  .main-content-6 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .center-group-6 {
+    width: 45%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .grey-top-6 {
+    width: 100%;
+    height: 70px;
+    background-color: #888888;
+  }
+  
+  .row-bottom-6 {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .blue-box-6 {
+    width: 70%;
+    height: 60px;
+    background-color: #0d47ff;
+  }
+  
+  .brown-box-6 {
+    width: 30%;
+    height: 60px;
+    background-color: #8d7b78;
+  }
