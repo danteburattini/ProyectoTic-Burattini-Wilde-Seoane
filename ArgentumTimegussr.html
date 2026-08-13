@@ -13,14 +13,36 @@
 
   <div class="frame frame-1 active">
     <div class="header">
-      <div class="box-small clickable" onclick="goToPage(5)"></div>
+      <div class="icon-btn-circle clickable" onclick="goToPage(5)" title="Opciones">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </div>
       <div class="box-large-black">ARGENTUM TIME GUESSR</div>
-      <div class="box-small clickable" onclick="goToPage(1)"></div>
+      <div class="icon-btn-circle clickable" onclick="goToPage(1)" title="Iniciar Sesión">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
     </div>
     <div class="content-grid">
-      <div class="card"></div>
-      <div class="card clickable" onclick="goToPage(3)"></div>
-      <div class="card clickable" onclick="goToPage(2)"></div>
+      <div class="card clickable" onclick="goToPage(6)">
+        <img src="https://media.ambito.com/p/a91f23d942f31571ea9a3844991f17c6/adjuntos/239/imagenes/040/138/0040138696/guerra-malvinas.jpg" alt="Modo Casual" class="card-img" />
+        <div class="card-vignette"></div>
+        <div class="pill-btn">MODO CASUAL / JUGAR CON AMIGOS</div>
+      </div>
+      <div class="card clickable" onclick="goToPage(3)">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkUv094fE6xgUWGJflWNoOYkv-FAF05RZSeHkTLaKkSw&s" alt="Modo Fútbol" class="card-img" />
+        <div class="card-vignette"></div>
+        <div class="pill-btn">MODO FÚTBOL</div>
+      </div>
+      <div class="card clickable" onclick="goToPage(2)">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN5Dz0ByWNKh4ZZOkJRzSJU1e-n3soPvIMdqnfrVCnZw&s=10" alt="Modo Competitivo" class="card-img" />
+        <div class="card-vignette"></div>
+        <div class="pill-btn">MODO COMPETITIVO</div>
+      </div>
     </div>
   </div>
 
@@ -111,8 +133,33 @@
         <div class="map-container">
           <div class="map-top"></div>
           <div class="map-bottom"></div>
-          <div class="slider-bar">
-            <div class="pin"></div>
+          <div class="timeline-container">
+            <span class="year-label">1900</span>
+            <div class="timeline-track" id="timelineTrack">
+              <div class="ticks">
+                <div class="tick"></div>
+                <div class="tick"></div>
+                <div class="tick"></div>
+                <div class="tick"></div>
+                <div class="tick"></div>
+                <div class="tick"></div>
+                <div class="tick"></div>
+              </div>
+              <div class="timeline-handle" id="timelineHandle">
+                <div class="zoom-magnifier">
+                  <span class="zoom-year-text" id="zoomYearText">1963</span>
+                  <div class="zoom-ticks">
+                    <div class="zoom-tick sub"></div>
+                    <div class="zoom-tick sub"></div>
+                    <div class="zoom-tick main"></div>
+                    <div class="zoom-tick sub"></div>
+                    <div class="zoom-tick sub"></div>
+                  </div>
+                </div>
+                <div class="pin"></div>
+              </div>
+            </div>
+            <span class="year-label">2026</span>
           </div>
         </div>
       </div>
@@ -146,6 +193,27 @@
     </div>
   </div>
 
+  <div class="frame frame-7">
+    <div class="top-bar-7">
+      <div class="black-box-7 clickable" onclick="goToPage(0)">ARGENTUM TIME GUESSR</div>
+    </div>
+    <div class="main-content-7">
+      <div class="casual-card">
+        <div class="casual-header-bar"></div>
+        <div class="casual-middle-row">
+          <div class="casual-text-bar"></div>
+          <div class="copy-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="blue-btn-7 clickable" onclick="goToPage(4)"></div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const frames = document.querySelectorAll('.frame');
 
@@ -155,6 +223,67 @@
           frame.classList.add('active');
         } else {
           frame.classList.remove('active');
+        }
+      });
+    }
+
+    const track = document.getElementById('timelineTrack');
+    const handle = document.getElementById('timelineHandle');
+    const yearText = document.getElementById('zoomYearText');
+    let isDragging = false;
+
+    function updateSlider(e) {
+      if (!track) return;
+      const rect = track.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      let percent = (clientX - rect.left) / rect.width;
+      percent = Math.max(0, Math.min(1, percent));
+      
+      const year = Math.round(1900 + percent * (2026 - 1900));
+      handle.style.left = (percent * 100) + '%';
+      if (yearText) yearText.textContent = year;
+    }
+
+    if (track && handle) {
+      handle.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        handle.classList.add('active');
+        updateSlider(e);
+      });
+      track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        handle.classList.add('active');
+        updateSlider(e);
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (isDragging) updateSlider(e);
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          handle.classList.remove('active');
+        }
+      });
+
+      handle.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        handle.classList.add('active');
+        updateSlider(e);
+      });
+      track.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        handle.classList.add('active');
+        updateSlider(e);
+      });
+      window.addEventListener('touchmove', (e) => {
+        if (isDragging) updateSlider(e);
+      });
+      window.addEventListener('touchend', () => {
+        if (isDragging) {
+          isDragging = false;
+          handle.classList.remove('active');
         }
       });
     }
