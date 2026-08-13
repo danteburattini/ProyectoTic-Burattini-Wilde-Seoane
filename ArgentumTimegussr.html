@@ -20,11 +20,12 @@
         </svg>
       </div>
       <div class="box-large-black">ARGENTUM TIME GUESSR</div>
-      <div class="icon-btn-circle clickable" onclick="goToPage(1)" title="Iniciar Sesión">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="icon-btn-circle clickable" id="headerProfileBtn" onclick="goToPage(1)" title="Iniciar Sesión">
+        <svg id="headerProfileIcon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
+        <span id="headerProfileBadge" class="header-user-badge" style="display: none;"></span>
       </div>
     </div>
     <div class="content-grid">
@@ -48,24 +49,74 @@
 
   <div class="frame frame-2">
     <div class="top-bar">
-      <div class="black-box clickable" onclick="goToPage(0)">ARGENTUM TIME GUESSR</div>
+      <div class="back-arrow clickable" onclick="goBack()" title="Volver">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </div>
+      <div class="black-box">ARGENTUM TIME GUESSR</div>
     </div>
     <div class="main-content">
       <div class="form-card">
-        <div class="avatar-icon">
-          <div class="avatar-head"></div>
-          <div class="avatar-body"></div>
+        
+        <div id="authFormView" class="auth-view-container">
+          <div class="auth-tabs">
+            <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">INICIAR SESIÓN</button>
+            <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">REGISTRARSE</button>
+          </div>
+
+          <form id="authForm" onsubmit="handleAuthSubmit(event)">
+            <div class="form-group" id="groupUsername" style="display: none;">
+              <label class="form-label" for="inputUsername">NOMBRE DE USUARIO</label>
+              <input type="text" id="inputUsername" class="form-input" placeholder="Ej: SanMartin92">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputEmail">CORREO ELECTRÓNICO</label>
+              <input type="email" id="inputEmail" class="form-input" placeholder="usuario@correo.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputPassword">CONTRASEÑA</label>
+              <div class="password-wrapper">
+                <input type="password" id="inputPassword" class="form-input" placeholder="••••••••" required>
+                <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()" title="Mostrar contraseña">
+                  <svg id="eyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="auth-error-msg" id="authError"></div>
+
+            <button type="submit" class="auth-submit-btn" id="authSubmitBtn">ENTRAR</button>
+          </form>
         </div>
-        <div class="field"></div>
-        <div class="field"></div>
-        <div class="btn"></div>
+
+        <div id="loggedInView" class="logged-in-container" style="display: none;">
+          <div class="user-avatar-badge" id="userAvatarBadge">A</div>
+          <h2 class="user-welcome-title" id="userNameTitle">¡Bienvenido!</h2>
+          <p class="user-email-text" id="userEmailText">usuario@correo.com</p>
+
+          <button class="logout-btn clickable" onclick="handleLogout()">CERRAR SESIÓN</button>
+        </div>
+
       </div>
     </div>
   </div>
 
   <div class="frame frame-3">
     <div class="top-bar-3">
-      <div class="black-box-3 clickable" onclick="goToPage(0)">ARGENTUM TIME GUESSR</div>
+      <div class="back-arrow clickable" onclick="goBack()" title="Volver">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </div>
+      <div class="black-box-3">ARGENTUM TIME GUESSR</div>
     </div>
     <div class="split-content">
       <div class="left-col">
@@ -75,34 +126,13 @@
       <div class="right-col">
         <div class="list-card">
           <div class="list-header"></div>
-          <div class="list-row">
-            <div class="row-sq"></div>
-            <div class="row-bar"></div>
-          </div>
-          <div class="list-row">
-            <div class="row-sq"></div>
-            <div class="row-bar"></div>
-          </div>
-          <div class="list-row">
-            <div class="row-sq"></div>
-            <div class="row-bar"></div>
-          </div>
-          <div class="list-row">
-            <div class="row-sq"></div>
-            <div class="row-bar"></div>
-          </div>
-          <div class="list-row">
-            <div class="row-sq"></div>
-            <div class="row-bar"></div>
-          </div>
-          <div class="list-row">
-            <div class="row-sq"></div>
-            <div class="row-bar"></div>
-          </div>
-          <div class="list-row">
-            <div class="row-sq"></div>
-            <div class="row-bar"></div>
-          </div>
+          <div class="list-row"><div class="row-sq"></div><div class="row-bar"></div></div>
+          <div class="list-row"><div class="row-sq"></div><div class="row-bar"></div></div>
+          <div class="list-row"><div class="row-sq"></div><div class="row-bar"></div></div>
+          <div class="list-row"><div class="row-sq"></div><div class="row-bar"></div></div>
+          <div class="list-row"><div class="row-sq"></div><div class="row-bar"></div></div>
+          <div class="list-row"><div class="row-sq"></div><div class="row-bar"></div></div>
+          <div class="list-row"><div class="row-sq"></div><div class="row-bar"></div></div>
         </div>
       </div>
     </div>
@@ -110,7 +140,13 @@
 
   <div class="frame frame-4">
     <div class="top-bar-4">
-      <div class="black-box-4 clickable" onclick="goToPage(0)">ARGENTUM TIME GUESSR</div>
+      <div class="back-arrow clickable" onclick="goBack()" title="Volver">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </div>
+      <div class="black-box-4">ARGENTUM TIME GUESSR</div>
     </div>
     <div class="main-content-4">
       <div class="center-card-4">
@@ -122,7 +158,13 @@
 
   <div class="frame frame-5">
     <div class="top-bar-5">
-      <div class="black-box-5 clickable" onclick="goToPage(0)">ARGENTUM TIME GUESSR</div>
+      <div class="back-arrow clickable" onclick="goBack()" title="Volver">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </div>
+      <div class="black-box-5">ARGENTUM TIME GUESSR</div>
     </div>
     <div class="content-5">
       <div class="photo-col">
@@ -167,25 +209,30 @@
   </div>
 
   <div class="frame frame-6">
-    <div class="back-arrow clickable" onclick="goToPage(0)">&larr;</div>
+    <div class="back-arrow back-arrow-floating clickable" onclick="goBack()" title="Volver">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </div>
     <div class="settings-card">
       <div class="settings-header"></div>
       <div class="settings-list">
         <div class="settings-row">
           <div class="setting-bar"></div>
-          <div class="toggle-switch">
+          <div class="toggle-switch active" onclick="toggleSwitch(this)">
             <div class="toggle-knob"></div>
           </div>
         </div>
         <div class="settings-row">
           <div class="setting-bar"></div>
-          <div class="toggle-switch">
+          <div class="toggle-switch" onclick="toggleSwitch(this)">
             <div class="toggle-knob"></div>
           </div>
         </div>
         <div class="settings-row">
           <div class="setting-bar"></div>
-          <div class="toggle-switch">
+          <div class="toggle-switch active" onclick="toggleSwitch(this)">
             <div class="toggle-knob"></div>
           </div>
         </div>
@@ -193,37 +240,280 @@
     </div>
   </div>
 
-  <div class="frame frame-7">
+  <div class="frame frame-7 world-map-bg">
     <div class="top-bar-7">
-      <div class="black-box-7 clickable" onclick="goToPage(0)">ARGENTUM TIME GUESSR</div>
+      <div class="back-arrow clickable" onclick="goBack()" title="Volver">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </div>
+      <div class="black-box-7">ARGENTUM TIME GUESSR</div>
     </div>
+    
     <div class="main-content-7">
-      <div class="casual-card">
-        <div class="casual-header-bar"></div>
-        <div class="casual-middle-row">
-          <div class="casual-text-bar"></div>
-          <div class="copy-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
+      <div class="casual-config-card">
+        <h2 class="casual-title">MODO CASUAL</h2>
+        
+        <div class="timer-section">
+          <span class="section-label">CONFIGURACIÓN DE TIEMPO</span>
+          <div class="timer-toggle-group">
+            <button class="timer-btn active" id="btnSinTimer" onclick="setTimerMode('sin')">SIN TEMPORIZADOR</button>
+            <button class="timer-btn" id="btnConTimer" onclick="setTimerMode('con')">CON TEMPORIZADOR</button>
+          </div>
+
+          <div class="timer-slider-wrapper" id="timerSliderWrapper">
+            <div class="slider-header">
+              <span>TIEMPO DE JUEGO:</span>
+              <span id="minuteDisplay" class="minute-badge">10 MINUTOS</span>
+            </div>
+            <input type="range" id="timeSlider" min="1" max="20" value="10" class="custom-range" oninput="updateTimerDisplay(this.value)">
+            <div class="range-labels">
+              <span>1 min</span>
+              <span>10 min</span>
+              <span>20 min</span>
+            </div>
           </div>
         </div>
-        <div class="blue-btn-7 clickable" onclick="goToPage(4)"></div>
+
+        <button class="action-btn friends-trigger-btn" onclick="openFriendsModal()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          JUGAR CON AMIGOS
+        </button>
+
+        <button class="action-btn play-start-btn clickable" onclick="goToPage(4)">
+          JUGAR AHORA
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="friendsModal">
+      <div class="friends-modal-box">
+        <div class="modal-top">
+          <h3>DESAFÍO A UN AMIGO</h3>
+          <div class="expanding-close-btn" onclick="closeFriendsModal()" title="Cerrar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="close-text">CERRAR</span>
+          </div>
+        </div>
+        <p class="modal-info">Copiá este enlace de tu perfil y envíaselo a tu amigo para recibir su desafío directo:</p>
+        <div class="link-input-group">
+          <input type="text" id="profileUrlInput" value="https://argentumtimeguessr.com/desafio/user-9284" readonly>
+          <button class="copy-btn" onclick="copyProfileLink()">COPIAR</button>
+        </div>
+        <div class="toast-feedback" id="copyToast">¡Enlace copiado con éxito!</div>
       </div>
     </div>
   </div>
 
   <script>
     const frames = document.querySelectorAll('.frame');
+    let currentFrameIndex = 0;
+    let historyStack = [];
 
-    function goToPage(index) {
+    let currentAuthMode = 'login';
+    let currentUser = JSON.parse(localStorage.getItem('atg_user')) || null;
+    let registeredUsers = JSON.parse(localStorage.getItem('atg_users_db')) || [];
+
+    function initUserSession() {
+      updateUserUI();
+    }
+
+    function switchAuthTab(mode) {
+      currentAuthMode = mode;
+      const tabLogin = document.getElementById('tabLogin');
+      const tabRegister = document.getElementById('tabRegister');
+      const groupUsername = document.getElementById('groupUsername');
+      const authSubmitBtn = document.getElementById('authSubmitBtn');
+      const authError = document.getElementById('authError');
+
+      authError.textContent = '';
+
+      if (mode === 'login') {
+        tabLogin.classList.add('active');
+        tabRegister.classList.remove('active');
+        groupUsername.style.display = 'none';
+        authSubmitBtn.textContent = 'ENTRAR';
+      } else {
+        tabRegister.classList.add('active');
+        tabLogin.classList.remove('active');
+        groupUsername.style.display = 'flex';
+        authSubmitBtn.textContent = 'CREAR CUENTA';
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const input = document.getElementById('inputPassword');
+      if (input.type === 'password') {
+        input.type = 'text';
+      } else {
+        input.type = 'password';
+      }
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('inputEmail').value.trim().toLowerCase();
+      const password = document.getElementById('inputPassword').value.trim();
+      const username = document.getElementById('inputUsername').value.trim();
+      const authError = document.getElementById('authError');
+
+      authError.textContent = '';
+
+      if (!email || !password) {
+        authError.textContent = 'Por favor, completá todos los campos.';
+        return;
+      }
+
+      if (currentAuthMode === 'register') {
+        if (!username) {
+          authError.textContent = 'Por favor, ingresá un nombre de usuario.';
+          return;
+        }
+
+        const existingUser = registeredUsers.find(u => u.email === email);
+        if (existingUser) {
+          authError.textContent = 'Ya existe una cuenta con este correo.';
+          return;
+        }
+
+        const newUser = {
+          name: username,
+          email: email,
+          password: password
+        };
+
+        registeredUsers.push(newUser);
+        localStorage.setItem('atg_users_db', JSON.stringify(registeredUsers));
+
+        currentUser = newUser;
+        localStorage.setItem('atg_user', JSON.stringify(currentUser));
+        updateUserUI();
+
+      } else {
+        const foundUser = registeredUsers.find(u => u.email === email);
+
+        if (!foundUser) {
+          authError.textContent = 'El usuario no existe. Registrate primero.';
+          return;
+        }
+
+        if (foundUser.password !== password) {
+          authError.textContent = 'Contraseña incorrecta.';
+          return;
+        }
+
+        currentUser = foundUser;
+        localStorage.setItem('atg_user', JSON.stringify(currentUser));
+        updateUserUI();
+      }
+    }
+
+    function handleLogout() {
+      currentUser = null;
+      localStorage.removeItem('atg_user');
+      document.getElementById('authForm').reset();
+      updateUserUI();
+    }
+
+    function updateUserUI() {
+      const authFormView = document.getElementById('authFormView');
+      const loggedInView = document.getElementById('loggedInView');
+      const headerIcon = document.getElementById('headerProfileIcon');
+      const headerBadge = document.getElementById('headerProfileBadge');
+
+      if (currentUser) {
+        authFormView.style.display = 'none';
+        loggedInView.style.display = 'flex';
+
+        const initial = currentUser.name.charAt(0).toUpperCase();
+        document.getElementById('userAvatarBadge').textContent = initial;
+        document.getElementById('userNameTitle').textContent = `¡Hola, ${currentUser.name}!`;
+        document.getElementById('userEmailText').textContent = currentUser.email;
+
+        headerIcon.style.display = 'none';
+        headerBadge.style.display = 'flex';
+        headerBadge.textContent = initial;
+      } else {
+        authFormView.style.display = 'flex';
+        loggedInView.style.display = 'none';
+
+        headerIcon.style.display = 'block';
+        headerBadge.style.display = 'none';
+      }
+    }
+
+    function goToPage(index, recordHistory = true) {
+      if (recordHistory && currentFrameIndex !== index) {
+        historyStack.push(currentFrameIndex);
+      }
+      currentFrameIndex = index;
       frames.forEach((frame, i) => {
         if (i === index) {
           frame.classList.add('active');
         } else {
           frame.classList.remove('active');
         }
+      });
+    }
+
+    function goBack() {
+      if (historyStack.length > 0) {
+        const previousFrame = historyStack.pop();
+        goToPage(previousFrame, false);
+      } else {
+        goToPage(0, false);
+      }
+    }
+
+    function toggleSwitch(element) {
+      element.classList.toggle('active');
+    }
+
+    function setTimerMode(mode) {
+      const btnSin = document.getElementById('btnSinTimer');
+      const btnCon = document.getElementById('btnConTimer');
+      const sliderWrapper = document.getElementById('timerSliderWrapper');
+
+      if (mode === 'con') {
+        btnCon.classList.add('active');
+        btnSin.classList.remove('active');
+        sliderWrapper.classList.add('show');
+      } else {
+        btnSin.classList.add('active');
+        btnCon.classList.remove('active');
+        sliderWrapper.classList.remove('show');
+      }
+    }
+
+    function updateTimerDisplay(value) {
+      const display = document.getElementById('minuteDisplay');
+      display.textContent = `${value} MINUTO${value > 1 ? 'S' : ''}`;
+    }
+
+    function openFriendsModal() {
+      document.getElementById('friendsModal').classList.add('active');
+    }
+
+    function closeFriendsModal() {
+      document.getElementById('friendsModal').classList.remove('active');
+    }
+
+    function copyProfileLink() {
+      const input = document.getElementById('profileUrlInput');
+      input.select();
+      navigator.clipboard.writeText(input.value).then(() => {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
       });
     }
 
@@ -287,6 +577,8 @@
         }
       });
     }
+
+    document.addEventListener('DOMContentLoaded', initUserSession);
   </script>
 
 </body>
