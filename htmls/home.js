@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const usuarioLogueado = false; 
-
+    const usuarioLogueado = localStorage.getItem("usuarioLogueado") === "true";
     const btnCompetitivo = document.querySelector('.card-boxeo');
     const btnCasual = document.querySelector('.card-monumento');
     const btnFutbol = document.querySelector('.card-messi');
