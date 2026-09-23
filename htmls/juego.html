@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>En Juego</title>
   <link rel="stylesheet" href="argentumtimeguessr.css">
-  <script src="juegos.js"></script>
+  <script src="../juego/juegos.js" defer></script>
 </head>
 <body>
   <header class="header">
     <a href="home.html" class="logo logo-small">
-      <span class="stars">&#9733;&#9733;&#9733;</span>
+      <span class="stars">★★★</span>
       <h1>ARGENTUM <span>TIME GUESSER</span></h1>
     </a>
     <div class="game-stats">
@@ -25,9 +25,12 @@
       <div class="game-map"></div>
       <div class="year-selector">
         <button class="arrow-btn">&lt;</button>
-        <a href="pantallafinal.html" class="year-val">2026</a>
+        <span class="year-val">2026</span>
         <button class="arrow-btn">&gt;</button>
       </div>
+      <button id="btn-confirmar" style="margin-top: 10px; width: 100%;">CONFIRMAR RESPUESTA</button>
+      
+
     </div>
   </div>
 </body>

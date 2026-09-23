@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const botonesFlecha = document.querySelectorAll(".arrow-btn");
     const visorAño = document.querySelector(".year-val");
-    const btnConfirmar = document.getElementById("btn-confirmar") || document.querySelector(".game-map-container button");
+    const btnConfirmar = document.getElementById("btn-confirmar");
 
     const iniciarRonda = () => {
         if (rondaActual >= 5) {
@@ -119,4 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     iniciarRonda();
 });
+
+
 
