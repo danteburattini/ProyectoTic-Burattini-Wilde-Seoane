@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Argentum Time Guesser - Inicio</title>
-  <link rel="stylesheet" href="argentumtimeguessr.css">
-  <script src="../juego/home.js" defer></script>
+  <title>Argentum Time Guesser - Home</title>
+  <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
 <body>
+
   <header class="header">
-    <a href="settings.html" class="icon-btn">⚙</a>
-    <a href="home.html" class="logo">
-      <span class="stars">★★★</span>
-      <h1>ARGENTUM <span>TIME GUESSER</span></h1>
-    </a>
-    <a href="login.html" class="icon-btn">➜</a>
+    <a href="../settings/settings.html" class="header-icon">⚙</a>
+    <div class="logo-container">
+      <div class="logo-stars">★ ★ ★</div>
+      <div class="logo-title">ARGENTUM TIME GUESSER</div>
+    </div>
+    <a href="../login/login.html" class="header-icon">👤</a>
   </header>
 
-  <div class="banner-title">&iquest;C&Oacute;MO SE JUEGA?</div>
+  <main class="main-content">
+    <a href="#" class="btn-how-to-play">¿COMO SE JUEGA?</a>
 
-  <div class="cards-grid">
-    <a href="modocompetitivo.html" class="card card-boxeo">
-      <div class="card-btn">MODO COMPETITIVO</div>
-    </a>
-    <a href="modocasual.html" class="card card-monumento">
-      <div class="card-btn">MODO CASUAL</div>
-    </a>
-    <a href="modofutbol.html" class="card card-messi">
-      <div class="card-btn">MODO FULBO</div>
-    </a>
-  </div>
+    <div class="cards-container">
+      <a href="../modocompetitivo/modocompetitivo.html" class="card card-competitivo">
+        <div class="card-overlay-btn">MODO COMPETITIVO</div>
+      </a>
+
+      <a href="../modocasual/modocasual.html" class="card card-casual">
+        <div class="card-overlay-btn">MODO CASUAL</div>
+      </a>
+
+      <a href="../modofutbol/modofutbol.html" class="card card-fulbo">
+        <div class="card-overlay-btn">MODO FULBO</div>
+      </a>
+    </div>
+  </main>
+
+  <script src="home.js"></script>
 </body>
 </html>

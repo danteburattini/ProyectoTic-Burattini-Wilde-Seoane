@@ -4,35 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modo Competitivo</title>
-  <link rel="stylesheet" href="argentumtimeguessr.css">
-  <script src="../juego/modocompetitivo.js" defer></script>
+  <link rel="stylesheet" href="../estilos/argentumtimeguessr.css">
 </head>
 <body>
+
   <header class="header">
-    <a href="home.html" class="logo logo-small">
-      <span class="stars">★★★</span>
-      <h1>ARGENTUM <span>TIME GUESSER</span></h1>
-    </a>
-    <div class="slide-title">MODO COMPETITIVO</div>
+    <a href="../home/home.html" class="header-icon">🏠</a>
+    <div class="logo-container">
+      <div class="logo-stars">★ ★ ★</div>
+      <div class="logo-title">ARGENTUM TIME GUESSER</div>
+    </div>
+    <div class="title-section">MODO COMPETITIVO</div>
   </header>
 
-  <div class="ranked-container">
-    <div class="ranked-left">
-      <div class="pilot-image"></div>
-      <a href="juego.html" class="btn-primary">JUGAR</a>
+  <main class="page-container">
+    <div class="competitivo-container">
+      <div class="competitivo-left">
+        <div class="card-img-holder"></div>
+        <a href="../juego/juego.html" class="btn-blue-action">JUGAR</a>
+      </div>
+
+      <div class="ranked-panel">
+        <div class="ranked-header">RANKED</div>
+        <ul class="ranked-list">
+          <li class="ranked-item">1. <div class="ranked-box"></div></li>
+          <li class="ranked-item">2. <div class="ranked-box"></div></li>
+          <li class="ranked-item">3. <div class="ranked-box"></div></li>
+          <li class="ranked-item">4. <div class="ranked-box"></div></li>
+          <li class="ranked-item">5. <div class="ranked-box"></div></li>
+          <li class="ranked-item">6. <div class="ranked-box"></div></li>
+          <li class="ranked-item">7. <div class="ranked-box"></div></li>
+        </ul>
+      </div>
     </div>
-    <div class="ranked-right">
-      <div class="ranked-header">RANKED</div>
-      <ol class="ranked-list">
-        <li><span>1.</span> <div class="rank-bar"></div></li>
-        <li><span>2.</span> <div class="rank-bar"></div></li>
-        <li><span>3.</span> <div class="rank-bar"></div></li>
-        <li><span>4.</span> <div class="rank-bar"></div></li>
-        <li><span>5.</span> <div class="rank-bar"></div></li>
-        <li><span>6.</span> <div class="rank-bar"></div></li>
-        <li><span>7.</span> <div class="rank-bar"></div></li>
-      </ol>
-    </div>
-  </div>
+  </main>
+
 </body>
 </html>

@@ -3,35 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En Juego</title>
-  <link rel="stylesheet" href="argentumtimeguessr.css">
-  <script src="../juego/juegos.js" defer></script>
+  <title>Juego</title>
+  <link rel="stylesheet" href="../estilos/argentumtimeguessr.css">
 </head>
 <body>
-  <header class="header">
-    <a href="home.html" class="logo logo-small">
-      <span class="stars">★★★</span>
-      <h1>ARGENTUM <span>TIME GUESSER</span></h1>
-    </a>
-    <div class="game-stats">
-      <div class="stat-badge round-badge">ROUND <span>1/5</span></div>
-      <div class="stat-badge points-badge">POINTS <span>0</span></div>
+
+  <header class="game-header">
+    <div class="logo-container" style="padding: 10px 20px;">
+      <div class="logo-stars">★ ★ ★</div>
+      <div class="logo-title">ARGENTUM TIME GUESSER</div>
+    </div>
+    <div class="game-score-board">
+      <div class="score-box score-round">
+        <span>ROUND</span>
+        <span class="score-val">1/5</span>
+      </div>
+      <div class="score-box score-points">
+        <span>POINTS</span>
+        <span class="score-val">0</span>
+      </div>
     </div>
   </header>
 
-  <div class="game-content">
-    <div class="game-photo"></div>
-    <div class="game-map-container">
-      <div class="game-map"></div>
-      <div class="year-selector">
-        <button class="arrow-btn">&lt;</button>
-        <span class="year-val">2026</span>
-        <button class="arrow-btn">&gt;</button>
-      </div>
-      <button id="btn-confirmar" style="margin-top: 10px; width: 100%;">CONFIRMAR RESPUESTA</button>
-      
-
+  <main class="game-content">
+    <div class="game-photo-container">
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?q=80&w=800" alt="Foto Historica" class="game-photo">
     </div>
-  </div>
+
+    <div class="game-map-container">
+      <iframe class="game-map" src="https://maps.google.com/maps?q=Buenos%20Aires&t=&z=5&ie=UTF8&iwloc=&output=embed"></iframe>
+      <div class="year-selector">
+        <button class="year-btn">◄</button>
+        <span>2026</span>
+        <button class="year-btn">►</button>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

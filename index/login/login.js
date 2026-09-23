@@ -1,21 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const inputUsuario = document.querySelector("input[type='text']");
-    const inputContraseña = document.querySelector("input[type='password']");
-    const btnLogin = document.querySelector(".btn-yellow");
+const loginBtn = document.querySelector('.btn-yellow');
+const inputs = document.querySelectorAll('.input-field');
 
-    if (btnLogin) {
-        btnLogin.addEventListener("click", (event) => {
-            const usuario = inputUsuario.value.trim();
-            const contraseña = inputContraseña.value.trim();
-
-            if (usuario === "" || contraseña === "") {
-                event.preventDefault();
-                alert("Por favor, completá toda la informacion necesaria antes de continuar.");
-                return;
-            }
-
-            localStorage.setItem("usuarioLogueado", "true");
-            localStorage.setItem("nombreUsuario", usuario);
-        });
+if (loginBtn) {
+  loginBtn.addEventListener('click', (e) => {
+    if (!inputs[0].value.trim() || !inputs[1].value.trim()) {
+      e.preventDefault();
+      alert('Ingresá usuario y contraseña para continuar.');
     }
-});
+  });
+}
