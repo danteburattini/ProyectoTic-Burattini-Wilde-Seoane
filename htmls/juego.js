@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const gamePhoto = document.querySelector(".game-photo");
     const gameMap = document.querySelector(".game-map");
-    const visorAño = document.getElementById("visor-anio");
-    const btnMenos = document.getElementById("btn-menos");
-    const btnMas = document.getElementById("btn-mas");
-    const btnConfirmar = document.getElementById("btn-confirmar");
     const labelRound = document.querySelector(".round-badge span");
     const labelPoints = document.querySelector(".points-badge span");
+
+    const botonesFlecha = document.querySelectorAll(".arrow-btn");
+    const visorAño = document.querySelector(".year-val");
+    const btnConfirmar = document.getElementById("btn-confirmar") || document.querySelector(".game-map-container button");
 
     const iniciarRonda = () => {
         if (rondaActual >= 5) {
@@ -30,12 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const fotoData = fotografias[rondaActual];
-        gamePhoto.style.backgroundImage = `url('${fotoData.src}')`;
+        if (gamePhoto) {
+            gamePhoto.style.backgroundImage = `url('${fotoData.src}')`;
+        }
         
-        labelRound.textContent = `${rondaActual + 1}/5`;
+        if (labelRound) {
+            labelRound.textContent = `${rondaActual + 1}/5`;
+        }
         
         añoSeleccionado = 2026;
-        visorAño.textContent = añoSeleccionado;
+        if (visorAño) {
+            visorAño.textContent = añoSeleccionado;
+        }
 
         clicX = null;
         clicY = null;
@@ -43,6 +49,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const marcador = document.getElementById("marcador-jugador");
         if (marcador) marcador.remove();
     };
+
+    if (botonesFlecha.length >= 2 && visorAño) {
+        botonesFlecha[0].addEventListener("click", () => {
+            añoSeleccionado--;
+            visorAño.textContent = añoSeleccionado;
+        });
+
+        botonesFlecha[1].addEventListener("click", () => {
+            añoSeleccionado++;
+            visorAño.textContent = añoSeleccionado;
+        });
+    }
 
     if (gameMap) {
         gameMap.style.position = "relative";
@@ -68,18 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (btnMenos && btnMas && visorAño) {
-        btnMenos.addEventListener("click", () => {
-            añoSeleccionado--;
-            visorAño.textContent = añoSeleccionado;
-        });
-
-        btnMas.addEventListener("click", () => {
-            añoSeleccionado++;
-            visorAño.textContent = añoSeleccionado;
-        });
-    }
-
     if (btnConfirmar) {
         btnConfirmar.addEventListener("click", () => {
             if (clicX === null || clicY === null) {
@@ -100,7 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const puntosRonda = puntosAño + puntosDistancia;
             puntajeTotal += puntosRonda;
             
-            labelPoints.textContent = puntajeTotal;
+            if (labelPoints) {
+                labelPoints.textContent = puntajeTotal;
+            }
 
             alert(`PUNTAJE DE LA RONDA: ${puntosRonda} PUNTOS\n\n- Por Año (${fotoData.añoCorrecto}): ${puntosAño} pts.\n- Por Distancia: ${puntosDistancia} pts.`);
 
@@ -111,3 +119,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     iniciarRonda();
 });
+
