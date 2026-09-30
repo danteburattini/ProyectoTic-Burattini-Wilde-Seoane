@@ -1,0 +1,235 @@
+[
+    {
+      "id": "acto-25-mayo",
+      "imagenLink": "/imagenes/modocasual/acto 25 de mayo 2023.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2023,
+      "coordenadas": { "lat": -34.6085, "lng": -58.3731 },
+      "descripcion": "Acto conmemorativo de la Revolución de Mayo."
+    },
+    {
+      "id": "barrio-chino",
+      "imagenLink": "/imagenes/modocasual/barrio chino  2026.jfif",
+      "modo": "casual",
+      "añoCorrecto": 2026,
+      "coordenadas": { "lat": -34.5571, "lng": -58.4485 },
+      "descripcion": "Arco de acceso y zona peatonal del Barrio Chino de Belgrano."
+    },
+    {
+      "id": "casa-tucuman",
+      "imagenLink": "/imagenes/modocasual/CasaDeTucumán 2016.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2016,
+      "coordenadas": { "lat": -26.8306, "lng": -65.2039 },
+      "descripcion": "Fachada histórica de la Casa Histórica de la Independencia en Tucumán."
+    },
+    {
+      "id": "casino-mdq",
+      "imagenLink": "/imagenes/modocasual/casino mar del plata 1941.jfif",
+      "modo": "casual",
+      "añoCorrecto": 1941,
+      "coordenadas": { "lat": -38.0055, "lng": -57.5427 },
+      "descripcion": "Inauguración del emblemático edificio del Casino Central de Mar del Plata."
+    },
+    {
+      "id": "congreso-milei",
+      "imagenLink": "/imagenes/modocasual/congreso asuncion de milei 2023.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2023,
+      "coordenadas": { "lat": -34.6097, "lng": -58.3924 },
+      "descripcion": "Acto de asunción presidencial en las escalinatas del Congreso de la Nación."
+    },
+    {
+      "id": "cromanon",
+      "imagenLink": "/imagenes/modocasual/cromanon 2008.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2008,
+      "coordenadas": { "lat": -34.6092, "lng": -58.4069 },
+      "descripcion": "Santuario y homenajes frente al local de República Cromañón en Once."
+    },
+    {
+      "id": "cueva-manos",
+      "imagenLink": "/imagenes/modocasual/cuava de las hands 2024.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2024,
+      "coordenadas": { "lat": -47.1561, "lng": -70.6552 },
+      "descripcion": "Pinturas rupestres milenarias en el cañadón del Río Pinturas, Santa Cruz."
+    },
+    {
+      "id": "fin-del-mundo",
+      "imagenLink": "/imagenes/modocasual/estacion del findel mundo 2019.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2019,
+      "coordenadas": { "lat": -54.8336, "lng": -68.4239 },
+      "descripcion": "Estación del Ferrocarril Austral Fueguino en Ushuaia, Tierra del Fuego."
+    },
+    {
+      "id": "f1-autodromo-53",
+      "imagenLink": "/imagenes/modocasual/f1 autodromo 1953.jfif",
+      "modo": "casual",
+      "añoCorrecto": 1953,
+      "coordenadas": { "lat": -34.6944, "lng": -58.4594 },
+      "descripcion": "Primer Gran Premio de la República Argentina de Fórmula 1 en el Autódromo de Buenos Aires."
+    },
+    {
+      "id": "f1-autodromo-98",
+      "imagenLink": "/imagenes/modocasual/f1 autodromo 1998.jfif",
+      "modo": "casual",
+      "añoCorrecto": 1998,
+      "coordenadas": { "lat": -34.6944, "lng": -58.4594 },
+      "descripcion": "Última carrera oficial disputada por la Fórmula 1 en territorio argentino."
+    },
+    {
+      "id": "hipodromo-palermo",
+      "imagenLink": "/imagenes/modocasual/hipodromo de palermo 1975.jpg",
+      "modo": "casual",
+      "añoCorrecto": 1975,
+      "coordenadas": { "lat": -34.5661, "lng": -58.4266 },
+      "descripcion": "Carrera hípica histórica sobre la clásica pista del Hipódromo de Palermo."
+    },
+    {
+      "id": "luna-park",
+      "imagenLink": "/imagenes/modocasual/luna park 1974.jfif",
+      "modo": "casual",
+      "añoCorrecto": 1974,
+      "coordenadas": { "lat": -34.6022, "lng": -58.3688 },
+      "descripcion": "Mítico estadio Luna Park durante veladas de boxeo de la década del 70."
+    },
+    {
+      "id": "monumento-bandera",
+      "imagenLink": "/imagenes/modocasual/monumento a la bandera 1939.jpg",
+      "modo": "casual",
+      "añoCorrecto": 1939,
+      "coordenadas": { "lat": -32.9475, "lng": -60.6304 },
+      "descripcion": "Obras y concurso de diseño para el Monumento Histórico Nacional a la Bandera en Rosario."
+    },
+    {
+      "id": "lobos-marinos",
+      "imagenLink": "/imagenes/modocasual/monumento a los lobos marinos 1946.jfif",
+      "modo": "casual",
+      "añoCorrecto": 1946,
+      "coordenadas": { "lat": -38.0062, "lng": -57.5419 },
+      "descripcion": "Escultura de los lobos marinos de Fioravanti en la Rambla de Mar del Plata."
+    },
+    {
+      "id": "ejercito-andes",
+      "imagenLink": "/imagenes/modocasual/monumento al ejercito de los  andes 1914.jpg",
+      "modo": "casual",
+      "añoCorrecto": 1914,
+      "coordenadas": { "lat": -32.8833, "lng": -68.8811 },
+      "descripcion": "Inauguración del monumento en el Cerro de la Gloria, Mendoza."
+    },
+    {
+      "id": "monumento-loba",
+      "imagenLink": "/imagenes/modocasual/monumento de la loba 2020.jfif",
+      "modo": "casual",
+      "añoCorrecto": 2020,
+      "coordenadas": { "lat": -34.1633, "lng": -58.9592 },
+      "descripcion": "Estatua de la Loba Capitolina donada por Italia, ubicada en Campana."
+    },
+    {
+      "id": "monumento-mate",
+      "imagenLink": "/imagenes/modocasual/monumento del mate 2025.jfif",
+      "modo": "casual",
+      "añoCorrecto": 2025,
+      "coordenadas": { "lat": -34.4012, "lng": -58.7334 },
+      "descripcion": "Estructura escultórica homenaje al mate en espacios públicos."
+    },
+    {
+      "id": "monumento-neuquen",
+      "imagenLink": "/imagenes/modocasual/monumento en neuquen 2024.jfif",
+      "modo": "casual",
+      "añoCorrecto": 2024,
+      "coordenadas": { "lat": -38.9516, "lng": -68.0591 },
+      "descripcion": "Monumento a los Caídos en Malvinas en la ciudad de Neuquén."
+    },
+    {
+      "id": "necochea",
+      "imagenLink": "/imagenes/modocasual/necochea 2021.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2021,
+      "coordenadas": { "lat": -38.5544, "lng": -58.7397 },
+      "descripcion": "Playas y zona costera de la ciudad balnearia de Necochea."
+    },
+    {
+      "id": "obelisco-35",
+      "imagenLink": "/imagenes/modocasual/obelisco 1935.jfif",
+      "modo": "casual",
+      "añoCorrecto": 1935,
+      "coordenadas": { "lat": -34.6037, "lng": -58.3816 },
+      "descripcion": "Inicio de las obras viales y excavaciones para el Obelisco porteño."
+    },
+    {
+      "id": "ort-rosario",
+      "imagenLink": "/imagenes/modocasual/ort rosario 2019.jfif",
+      "modo": "casual",
+      "añoCorrecto": 2019,
+      "coordenadas": { "lat": -32.9515, "lng": -60.6653 },
+      "descripcion": "Instalaciones del complejo educativo ORT en Rosario."
+    },
+    {
+      "id": "parque-roca",
+      "imagenLink": "/imagenes/modocasual/parque rroca 2018.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2018,
+      "coordenadas": { "lat": -34.6739, "lng": -58.4419 },
+      "descripcion": "Estadio Mary Terán de Weiss terminado para los Juegos Olímpicos de la Juventud 2018."
+    },
+    {
+      "id": "plaza-espana",
+      "imagenLink": "/imagenes/modocasual/plaza españa 1949.jfif",
+      "modo": "casual",
+      "añoCorrecto": 1949,
+      "coordenadas": { "lat": -31.4287, "lng": -64.1848 },
+      "descripcion": "Diseño urbanístico e histórico de la Plaza España en Córdoba."
+    },
+    {
+      "id": "barrancas-belgrano",
+      "imagenLink": "/imagenes/modocasual/plaza barrancas de belgrano 2012.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2012,
+      "coordenadas": { "lat": -34.5619, "lng": -58.4503 },
+      "descripcion": "Glorieta y senderos parquizados de las Barrancas de Belgrano."
+    },
+    {
+      "id": "delpotro-retirada",
+      "imagenLink": "/imagenes/modocasual/retirada de delpotro 2025.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2025,
+      "coordenadas": { "lat": -34.5453, "lng": -58.4497 },
+      "descripcion": "Homenaje y despedida oficial de Juan Martín del Potro en el Buenos Aires Lawn Tennis."
+    },
+    {
+      "id": "tandil-25",
+      "imagenLink": "/imagenes/modocasual/tandil 2025.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2025,
+      "coordenadas": { "lat": -37.3216, "lng": -59.1331 },
+      "descripcion": "Vista de los cerros y complejos turísticos urbanos en Tandil."
+    },
+    {
+      "id": "teatro-colon",
+      "imagenLink": "/imagenes/modocasual/teatro colon 2025.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2025,
+      "coordenadas": { "lat": -34.6011, "lng": -58.3831 },
+      "descripcion": "Sala principal e interior histórico del Teatro Colón."
+    },
+    {
+      "id": "teatro-san-martin",
+      "imagenLink": "/imagenes/modocasual/teatro san martin 1960.jpg",
+      "modo": "casual",
+      "añoCorrecto": 1960,
+      "coordenadas": { "lat": -34.6044, "lng": -58.3916 },
+      "descripcion": "Inauguración del Complejo Teatral San Martín sobre Avenida Corrientes."
+    },
+    {
+      "id": "ufo-point",
+      "imagenLink": "/imagenes/modocasual/ufo point 2023.jpg",
+      "modo": "casual",
+      "añoCorrecto": 2023,
+      "coordenadas": { "lat": -34.0953, "lng": -58.9664 },
+      "descripcion": "Estructura arquitectónica del parador costero UFO Point."
+    }
+  ]
+  
