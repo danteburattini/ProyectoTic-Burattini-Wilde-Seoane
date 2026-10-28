@@ -1,40 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Argentum Time Guesser - Home</title>
-  <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentum Time Guesser - Home</title>
+    <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
 <body>
+    <div class="pagina">
+        <header class="header">
+            <a href="../settings/settings.html" class="icono-header" aria-label="Ajustes">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2.5 14 4l2.5-.5 1.2 2.2 2.5 1 .1 2.5 1.7 1.8-1 2.3.4 2.5-2.2 1.2-1 2.5-2.5.1L14 21.5 11.5 21l-2.5.5-1.2-2.2-2.5-1-.1-2.5-1.7-1.8 1-2.3-.4-2.5 2.2-1.2 1-2.5 2.5-.1L12 2.5Z"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+            </a>
 
-  <header class="header">
-    <a href="../settings/settings.html" class="header-icon">⚙</a>
-    <div class="logo-container">
-      <div class="logo-stars">★ ★ ★</div>
-      <div class="logo-title">ARGENTUM TIME GUESSER</div>
+            <a href="home.html" class="logo-home">
+                <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
+            </a>
+
+            <a href="../login/login.html" class="icono-header perfil" aria-label="Iniciar sesión">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="8" r="5"/>
+                    <path d="M3 22c0-5 4-9 9-9s9 4 9 9"/>
+                </svg>
+            </a>
+        </header>
+
+        <main class="home">
+            <div class="tarjetas">
+                <a href="../modocompetitivo/modocompetitivo.html" class="tarjeta" id="competitivo">
+                    <img class="foto-modo" src="../../imagenes/fondo/monzon.jfif" alt="Modo competitivo">
+                    <div class="nombre-modo">MODO COMPETITIVO</div>
+                </a>
+
+                <a href="../modocasual/modocasual.html" class="tarjeta">
+                    <img class="foto-modo" src="../../imagenes/fondo/monumento a la bandera.jfif" alt="Modo casual">
+                    <div class="nombre-modo">MODO CASUAL</div>
+                </a>
+
+                <a href="../modofutbol/modofutbol.html" class="tarjeta">
+                    <img class="foto-modo" src="../../imagenes/fondo/messsi.jfif" alt="Modo fútbol">
+                    <div class="nombre-modo">MODO FUTBOL</div>
+                </a>
+            </div>
+        </main>
     </div>
-    <a href="../login/login.html" class="header-icon">👤</a>
-  </header>
 
-  <main class="main-content">
-    <a href="#" class="btn-how-to-play">¿COMO SE JUEGA?</a>
-
-    <div class="cards-container">
-      <a href="../modocompetitivo/modocompetitivo.html" class="card card-competitivo">
-        <div class="card-overlay-btn">MODO COMPETITIVO</div>
-      </a>
-
-      <a href="../modocasual/modocasual.html" class="card card-casual">
-        <div class="card-overlay-btn">MODO CASUAL</div>
-      </a>
-
-      <a href="../modofutbol/modofutbol.html" class="card card-fulbo">
-        <div class="card-overlay-btn">MODO FULBO</div>
-      </a>
-    </div>
-  </main>
-
-  <script src="home.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>
