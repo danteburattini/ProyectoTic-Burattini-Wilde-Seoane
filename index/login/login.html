@@ -1,30 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="../estilos/argentumtimeguessr.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentum Time Guesser - Login</title>
+    <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
 <body>
+    <div class="pagina">
+        <header class="header header-secundario">
+            <a href="../home/home.html" class="logo-secundario">
+                <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
+            </a>
+            <h1 class="titulo-pagina" id="titulo-login">USUARIO</h1>
+        </header>
 
-  <header class="header">
-    <a href="../home/home.html" class="header-icon">🏠</a>
-    <div class="logo-container">
-      <div class="logo-stars">★ ★ ★</div>
-      <div class="logo-title">ARGENTUM TIME GUESSER</div>
+        <main class="login">
+            <form class="caja-login" id="formulario-login">
+                <div class="avatar-login">
+                    <svg viewBox="0 0 100 100" fill="#7c8da5">
+                        <circle cx="50" cy="29" r="21"></circle>
+                        <path d="M17 95c0-26 14-39 33-39s33 13 33 39"></path>
+                    </svg>
+                </div>
+
+                <input type="email" id="email" placeholder="USUARIO (EMAIL)" autocomplete="email" required>
+
+                <input type="password" id="password" placeholder="CONTRASEÑA" autocomplete="current-password" required>
+
+                <p id="mensaje-login" class="mensaje-login" aria-live="polite"></p>
+
+                <button type="submit" class="boton-login" id="boton-login">LOG IN</button>
+            </form>
+
+            <button type="button" class="cambiar-login" id="cambiar-login">¿NO TENÉS CUENTA? REGISTRATE</button>
+
+            <a href="../home/home.html" class="volver-login">VOLVER AL INICIO</a>
+        </main>
     </div>
-    <div></div>
-  </header>
 
-  <main class="page-container">
-    <div class="login-card">
-      <div class="user-avatar">👤</div>
-      <input type="text" class="input-field" placeholder="USUARIO">
-      <input type="password" class="input-field" placeholder="CONTRASEÑA">
-      <a href="../home/home.html" class="btn-yellow">LOG IN</a>
-    </div>
-  </main>
-
+    <script src="login.js"></script>
 </body>
 </html>

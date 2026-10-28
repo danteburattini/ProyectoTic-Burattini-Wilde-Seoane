@@ -1,388 +1,428 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #0b1522;
-  color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: #0d2740;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+.pagina {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0d2740;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 25px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 90px;
+    padding: 8px 3%;
+    background-color: #f7f9fc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.header-icon {
-  width: 42px;
-  height: 42px;
-  background-color: #0b1522;
-  color: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 22px;
+.icono-header {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
 }
 
-.logo-container {
-  text-align: center;
-  color: #0b1522;
+.icono-header svg {
+    width: 43px;
+    height: 43px;
 }
 
-.logo-stars {
-  color: #f5b041;
-  font-size: 14px;
-  letter-spacing: 2px;
+.logo-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.logo-title {
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.logo-home img {
+    display: block;
+    width: 260px;
+    height: 80px;
+    object-fit: contain;
 }
 
-.title-section {
-  color: #0088e3;
-  font-size: 26px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.perfil {
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
-.page-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+.perfil svg {
+    width: 49px;
+    height: 49px;
+    margin-top: 13px;
+    color: #7d8da4;
 }
 
-.login-card {
-  background-color: #5bbcee;
-  width: 100%;
-  max-width: 450px;
-  border-radius: 25px;
-  padding: 30px 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+.home {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    background-color: #0d2740;
+    background-image: url('../imagenes/fondo/bocha.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 115% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
 }
 
-.user-avatar {
-  width: 100px;
-  height: 100px;
-  background-color: #63778a;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 55px;
-  color: #5bbcee;
+.tarjetas {
+    width: 100%;
+    max-width: 1120px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
 }
 
-.input-field {
-  width: 100%;
-  padding: 14px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  outline: none;
-  background-color: #f0f4f8;
-  color: #333333;
+.tarjeta {
+    position: relative;
+    width: calc((100% - 56px) / 3);
+    height: min(510px, 68vh);
+    min-height: 300px;
+    border: 4px solid #188dce;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d2740;
+    transition: transform 0.2s;
 }
 
-.btn-yellow {
-  width: 100%;
-  background-color: #f3b625;
-  color: #ffffff;
-  border: none;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
+.tarjeta:hover {
+    transform: scale(1.02);
 }
 
-.competitivo-container {
-  display: flex;
-  gap: 30px;
-  width: 100%;
-  max-width: 900px;
-  align-items: stretch;
+.foto-modo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.competitivo-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.nombre-modo {
+    position: absolute;
+    top: 36%;
+    left: 0;
+    right: 0;
+    min-height: 76px;
+    padding: 8px 5px;
+    background-color: #8199ff;
+    color: white;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    font-size: clamp(18px, 2.5vw, 33px);
 }
 
-.card-img-holder {
-  width: 100%;
-  height: 320px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-image: url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=500');
+.header-secundario {
+    height: 100px;
+    padding: 10px 3%;
 }
 
-.btn-blue-action {
-  background-color: #1a4dff;
-  color: #ffffff;
-  border: none;
-  padding: 18px;
-  border-radius: 15px;
-  font-size: 24px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-weight: bold;
+.logo-secundario {
+    display: flex;
+    align-items: center;
 }
 
-.ranked-panel {
-  flex: 1;
-  border: 3px solid #1ba0e3;
-  border-radius: 20px;
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(11, 21, 34, 0.8);
+.logo-secundario img {
+    width: 205px;
+    height: 75px;
+    object-fit: contain;
 }
 
-.ranked-header {
-  background-color: #4a779d;
-  color: #ffffff;
-  text-align: center;
-  padding: 12px;
-  font-size: 24px;
-  letter-spacing: 2px;
+.titulo-pagina {
+    color: #188dce;
+    font-size: 68px;
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing: 1px;
+    border-bottom: 6px dotted #188dce;
 }
 
-.ranked-list {
-  list-style: none;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.login {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 24px;
 }
 
-.ranked-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 18px;
+.caja-login {
+    background-color: #59bee6;
+    border-radius: 24px;
+    width: 440px;
+    max-width: 100%;
+    padding: 14px 60px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-.ranked-box {
-  flex: 1;
-  background-color: #ffffff;
-  height: 28px;
-  border-radius: 4px;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  color: #000000;
-  font-weight: bold;
+.avatar-login {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.futbol-bg {
-  background: radial-gradient(circle, #1a3c5a 0%, #0b1522 100%);
+.avatar-login svg {
+    width: 100%;
+    height: 100%;
 }
 
-.futbol-card {
-  background-color: rgba(91, 188, 238, 0.75);
-  width: 100%;
-  max-width: 600px;
-  height: 350px;
-  border-radius: 20px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.caja-login input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #f6f8fb;
+    padding: 0 8px;
+    font-size: 22px;
+    color: #0d2740;
 }
 
-.futbol-info-box {
-  background-color: #ffffff;
-  width: 100%;
-  height: 140px;
-  border-radius: 8px;
-  padding: 15px;
-  color: #333333;
+.caja-login input::placeholder {
+    color: #626b7b;
+    opacity: 1;
 }
 
-.game-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  background-color: #ffffff;
+.mensaje-login {
+    width: 100%;
+    min-height: 0;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-align: center;
+    color: #9b1720;
 }
 
-.game-score-board {
-  display: flex;
+.mensaje-login:empty {
+    display: none;
 }
 
-.score-box {
-  padding: 10px 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
+.mensaje-exito {
+    color: #075c31;
 }
 
-.score-round {
-  background-color: #f7b731;
-  color: #ffffff;
-  border-bottom-left-radius: 30px;
+.boton-login {
+    width: 100%;
+    height: 51px;
+    border: none;
+    border-radius: 30px;
+    background-color: #fbb923;
+    color: white;
+    font-size: 36px;
+    line-height: 1;
 }
 
-.score-points {
-  background-color: #4bc0c0;
-  color: #ffffff;
+.boton-login:hover {
+    background-color: #e9a912;
 }
 
-.score-val {
-  font-size: 24px;
-  font-weight: bold;
+.boton-login:disabled {
+    opacity: 0.6;
+    cursor: wait;
 }
 
-.game-content {
-  flex: 1;
-  display: flex;
-  gap: 20px;
-  padding: 20px;
+.cambiar-login {
+    margin-top: 16px;
+    border: 0;
+    background: none;
+    color: white;
+    font-size: 21px;
 }
 
-.game-photo-container {
-  flex: 1;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.volver-login {
+    margin-top: 8px;
+    color: #83c8eb;
+    font-size: 19px;
 }
 
-.game-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
+@media (max-width: 800px) {
+    .header {
+        height: 75px;
+    }
+
+    .icono-header {
+        width: 44px;
+        height: 44px;
+    }
+
+    .icono-header svg {
+        width: 37px;
+        height: 37px;
+    }
+
+    .perfil svg {
+        width: 37px;
+        height: 37px;
+        margin-top: 10px;
+    }
+
+    .logo-home img {
+        width: 195px;
+        height: 65px;
+    }
+
+    .home {
+        min-height: calc(100vh - 75px);
+        padding: 12px;
+    }
+
+    .tarjetas {
+        gap: 12px;
+    }
+
+    .tarjeta {
+        width: calc((100% - 24px) / 3);
+        height: 52vw;
+        min-height: 230px;
+        border-width: 3px;
+        border-radius: 17px;
+    }
+
+    .nombre-modo {
+        min-height: 55px;
+        font-size: clamp(12px, 2.6vw, 23px);
+    }
+
+    .header-secundario {
+        height: 80px;
+    }
+
+    .logo-secundario img {
+        width: 155px;
+        height: 60px;
+    }
+
+    .titulo-pagina {
+        font-size: 45px;
+        border-bottom-width: 4px;
+    }
+
+    .login {
+        min-height: calc(100vh - 80px);
+    }
 }
 
-.game-map-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-}
+@media (max-width: 480px) {
+    .header {
+        height: 65px;
+    }
 
-.game-map {
-  flex: 1;
-  width: 100%;
-  border: none;
-}
+    .logo-home img {
+        width: 145px;
+        height: 54px;
+    }
 
-.year-selector {
-  background-color: #f7b731;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  color: #ffffff;
-  font-size: 26px;
-}
+    .icono-header {
+        width: 36px;
+        height: 36px;
+    }
 
-.year-btn {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 28px;
-  cursor: pointer;
-}
+    .icono-header svg {
+        width: 30px;
+        height: 30px;
+    }
 
-.settings-card {
-  background-color: #1a4dff;
-  width: 100%;
-  max-width: 550px;
-  border-radius: 25px;
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
+    .perfil svg {
+        width: 30px;
+        height: 30px;
+        margin-top: 8px;
+    }
 
-.settings-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .home {
+        min-height: calc(100vh - 65px);
+        padding: 8px;
+    }
 
-.settings-bar {
-  background-color: #5bbcee;
-  height: 38px;
-  width: 65%;
-  border-radius: 6px;
-}
+    .tarjetas {
+        gap: 7px;
+    }
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-}
+    .tarjeta {
+        width: calc((100% - 14px) / 3);
+        min-height: 220px;
+        height: 55vw;
+        border-width: 2px;
+        border-radius: 14px;
+    }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+    .nombre-modo {
+        min-height: 42px;
+        font-size: clamp(10px, 3.1vw, 15px);
+        padding: 4px 2px;
+    }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #111111;
-  transition: .4s;
-  border-radius: 34px;
-}
+    .header-secundario {
+        height: 75px;
+    }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
-  background-color: #2ed573;
-  transition: .4s;
-  border-radius: 50%;
-}
+    .logo-secundario img {
+        width: 120px;
+        height: 55px;
+    }
 
-input:checked + .slider:before {
-  transform: translateX(30px);
+    .titulo-pagina {
+        font-size: 37px;
+    }
+
+    .login {
+        min-height: calc(100vh - 75px);
+        padding: 16px;
+    }
+
+    .caja-login {
+        padding: 14px 28px;
+        border-radius: 20px;
+    }
+
+    .avatar-login {
+        width: 90px;
+        height: 90px;
+    }
+
+    .caja-login input {
+        height: 37px;
+    }
+
+    .boton-login {
+        height: 45px;
+        font-size: 30px;
+    }
 }

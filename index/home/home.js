@@ -6,6 +6,6 @@ competitivo.addEventListener("click", function(evento) {
 
     if (!usuario) {
         evento.preventDefault();
-        window.location.href = "../login/login.html";
+        window.location.href = "../login/login.html?volver=competitivo";
     }
 });
