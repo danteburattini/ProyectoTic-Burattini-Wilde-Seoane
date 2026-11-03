@@ -1,34 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modo Casual</title>
-  <link rel="stylesheet" href="argentumtimeguessr.css">
-  <script src="modocasual.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentum Time Guesser - Modo Casual</title>
+    <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
-<body>
-  <header class="header">
-    <a href="home.html" class="logo logo-small">
-      <span class="stars">&#9733;&#9733;&#9733;</span>
-      <h1>ARGENTUM <span>TIME GUESSER</span></h1>
-    </a>
-    <div class="slide-title">MODO CASUAL</div>
-  </header>
 
-  <div class="content-box">
-    <div class="setting-group">
-      <div class="setting-title">TIEMPO</div>
-      <div class="toggle-switch">
-        <button class="toggle-btn active">S&iacute;</button>
-        <button class="toggle-btn">No</button>
-      </div>
-    </div>
-    <div class="input-row">
-      <input type="text" placeholder="Enfrentarte a un amigo" class="input-field">
-      <div class="file-icon">&#128196;</div>
-    </div>
-    <a href="juego.html" class="btn-primary">JUGAR</a>
-  </div>
+<body class="pagina-casual">
+
+    <header class="header-casual">
+        <a href="../home/home.html">
+            <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
+        </a>
+
+        <h1>MODO CASUAL</h1>
+    </header>
+
+    <main class="fondo-casual">
+
+        <div class="panel-casual">
+
+            <div class="titulo-tiempo">TIEMPO</div>
+
+            <div class="opciones-tiempo">
+                <button type="button" id="tiempo-si-casual" class="boton-tiempo-casual seleccionado">
+                    SÍ
+                </button>
+
+                <span class="separador-tiempo"></span>
+
+                <button type="button" id="tiempo-no-casual" class="boton-tiempo-casual">
+                    NO
+                </button>
+            </div>
+
+            <div class="tiempo-casual" id="tiempo-casual">
+                <p id="minutos-casual">9 MIN</p>
+                <input type="range" id="barra-minutos-casual" min="1" max="10" value="9">
+            </div>
+
+            <div class="amigo-casual">
+                <span>Enfrentarte a un amigo</span>
+                <span class="icono-copiar">▢</span>
+            </div>
+
+            <a href="../tutorial/tutorial.html?desde=casual" class="boton-tutorial-casual">
+                ¿CÓMO SE JUEGA?
+            </a>
+
+            <a href="../juego/juego.html" class="boton-jugar-casual" id="jugar-casual">
+                JUGAR
+            </a>
+
+        </div>
+
+    </main>
+
+    <script src="../tema.js"></script>
+    <script src="../audio.js"></script>
+    <script src="modocasual.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 * {
@@ -17,7 +16,8 @@ a {
     text-decoration: none;
 }
 
-button, input {
+button,
+input {
     font-family: 'Bebas Neue', sans-serif;
 }
 
@@ -63,8 +63,9 @@ button {
 
 .logo-home img {
     display: block;
-    width: 260px;
-    height: 80px;
+    width: 430px;
+    max-width: 100%;
+    height: 100px;
     object-fit: contain;
 }
 
@@ -82,31 +83,45 @@ button {
 }
 
 .home {
+    position: relative;
+    isolation: isolate;
     width: 100%;
     min-height: calc(100vh - 90px);
     background-color: #0d2740;
-    background-image: url('../imagenes/fondo/bocha.webp');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 115% auto;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 24px;
+    overflow: hidden;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    width: 115vh;
+    height: 115vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    background-image: url('../imagenes/fondo/ppppp.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: -1;
 }
 
 .tarjetas {
-    width: 100%;
-    max-width: 1120px;
+     width: 100%;
+    max-width: 1400px;
     display: flex;
-    justify-content: center;
-    gap: 28px;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .tarjeta {
     position: relative;
-    width: calc((100% - 56px) / 3);
-    height: min(510px, 68vh);
+    width: calc((100% - 60px) / 3);
+    height: min(590px, 74vh);
     min-height: 300px;
     border: 4px solid #188dce;
     border-radius: 24px;
@@ -158,8 +173,9 @@ button {
 }
 
 .logo-secundario img {
-    width: 205px;
-    height: 75px;
+    width: 370px;
+    max-width: 100%;
+    height: 100px;
     object-fit: contain;
 }
 
@@ -184,18 +200,20 @@ button {
 .caja-login {
     background-color: #59bee6;
     border-radius: 24px;
-    width: 440px;
+    width: 720px;
     max-width: 100%;
-    padding: 14px 60px 12px;
+    min-height: 580px;
+    padding: 30px 75px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 25px;
 }
 
 .avatar-login {
-    width: 110px;
-    height: 110px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -208,12 +226,12 @@ button {
 
 .caja-login input {
     width: 100%;
-    height: 40px;
+    height: 60px;
     border: none;
     outline: none;
     background-color: #f6f8fb;
-    padding: 0 8px;
-    font-size: 22px;
+    padding: 0 15px;
+    font-size: 27px;
     color: #0d2740;
 }
 
@@ -224,7 +242,6 @@ button {
 
 .mensaje-login {
     width: 100%;
-    min-height: 0;
     font-family: Arial, sans-serif;
     font-size: 13px;
     text-align: center;
@@ -241,13 +258,12 @@ button {
 
 .boton-login {
     width: 100%;
-    height: 51px;
+    height: 72px;
     border: none;
-    border-radius: 30px;
+    border-radius: 40px;
     background-color: #fbb923;
     color: white;
-    font-size: 36px;
-    line-height: 1;
+    font-size: 43px;
 }
 
 .boton-login:hover {
@@ -273,9 +289,108 @@ button {
     font-size: 19px;
 }
 
+.settings {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    padding: 30px 20px;
+}
+
+.caja-settings {
+    width: 800px;
+    max-width: 90%;
+    min-height: 580px;
+    background-color: #59bee6;
+    border-radius: 28px;
+    padding: 55px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 55px;
+}
+
+.opcion-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 55px;
+    gap: 20px;
+}
+
+.interruptor {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 52px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.interruptor input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.deslizador {
+    position: absolute;
+    inset: 0;
+    background-color: #78879c;
+    border-radius: 30px;
+    transition: background-color 0.2s;
+}
+
+.deslizador::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 42px;
+    height: 42px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.interruptor input:checked + .deslizador {
+    background-color: #187ec0;
+}
+
+.interruptor input:checked + .deslizador::before {
+    transform: translateX(48px);
+}
+
+.interruptor input:focus-visible + .deslizador {
+    outline: 3px solid #fbb923;
+    outline-offset: 4px;
+}
+
+.modo-claro,
+.modo-claro .pagina {
+    background-color: #e7f3fa;
+}
+
+.modo-claro .settings {
+    background-color: #e7f3fa;
+}
+
+.modo-claro .caja-settings {
+    background-color: #8bd1ed;
+}
+
+.modo-claro .opcion-settings {
+    color: #0d2740;
+}
+
 @media (max-width: 800px) {
     .header {
-        height: 75px;
+        height: 120px;
     }
 
     .icono-header {
@@ -295,8 +410,8 @@ button {
     }
 
     .logo-home img {
-        width: 195px;
-        height: 65px;
+        width: 215px;
+        height: 70px;
     }
 
     .home {
@@ -326,8 +441,8 @@ button {
     }
 
     .logo-secundario img {
-        width: 155px;
-        height: 60px;
+        width: 210px;
+        height: 70px;
     }
 
     .titulo-pagina {
@@ -335,7 +450,8 @@ button {
         border-bottom-width: 4px;
     }
 
-    .login {
+    .login,
+    .settings {
         min-height: calc(100vh - 80px);
     }
 }
@@ -346,8 +462,8 @@ button {
     }
 
     .logo-home img {
-        width: 145px;
-        height: 54px;
+        width: 160px;
+        height: 60px;
     }
 
     .icono-header {
@@ -394,8 +510,8 @@ button {
     }
 
     .logo-secundario img {
-        width: 120px;
-        height: 55px;
+        width: 155px;
+        height: 58px;
     }
 
     .titulo-pagina {
@@ -424,5 +540,1485 @@ button {
     .boton-login {
         height: 45px;
         font-size: 30px;
+    }
+
+    .settings {
+        min-height: calc(100vh - 75px);
+        gap: 25px;
+        padding: 18px;
+    }
+
+    .caja-settings {
+        padding: 30px 22px;
+        gap: 30px;
+        border-radius: 20px;
+    }
+
+    .opcion-settings {
+        font-size: 30px;
+    }
+
+    .interruptor {
+        width: 75px;
+        height: 40px;
+    }
+
+    .deslizador::before {
+        width: 32px;
+        height: 32px;
+        top: 4px;
+        left: 4px;
+    }
+
+    .interruptor input:checked + .deslizador::before {
+        transform: translateX(35px);
+    }
+
+}
+
+body.modo-claro,
+body.modo-claro .pagina {
+    background-color: #e7f3fa;
+}
+
+body:not(.modo-claro) .header .icono-header {
+    color: black;
+}
+
+
+body.modo-claro .header .icono-header {
+    color: black;
+}
+
+body.modo-claro .settings {
+    background-color: #e7f3fa;
+}
+
+body,
+.pagina,
+.home,
+.login,
+.settings {
+    background-color: #0d2740;
+}
+
+
+body:not(.modo-claro) .header {
+    background-color: white;
+}
+
+body:not(.modo-claro) .icono-header {
+    color: #0d2740;
+}
+
+
+
+body.modo-claro,
+body.modo-claro .pagina,
+body.modo-claro .home,
+body.modo-claro .login,
+body.modo-claro .settings {
+    background-color: #e7f3fa;
+}
+
+body.modo-claro .header {
+    background-color: white;
+}
+
+body.modo-claro .icono-header {
+    color: #0d2740;
+}
+
+body.modo-claro .caja-settings {
+    background-color: #8bd1ed;
+}
+
+body.modo-claro .opcion-settings {
+    color: #0d2740;
+}
+
+.pagina-casual {
+    min-height: 100vh;
+    background-color: #0d2740;
+}
+
+.header-casual {
+    height: 110px;
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+}
+
+.header-casual img {
+    width: 260px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.header-casual h1 {
+    font-size: 65px;
+    color: #188dce;
+    font-weight: normal;
+    border-bottom: 5px dotted #188dce;
+}
+
+.fondo-casual {
+    min-height: calc(100vh - 110px);
+    background-color: #0d2740;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.panel-casual {
+    position: relative;
+    width: 650px;
+    max-width: 100%;
+    background-color: #59bee6;
+    border-radius: 25px;
+    padding: 85px 55px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo-tiempo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 75px;
+    background-color: #0d2740;
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+}
+
+.opciones-tiempo {
+    width: 100%;
+    height: 60px;
+    background-color: #0d2740;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-size: 38px;
+}
+
+.separador-tiempo {
+    width: 8px;
+    height: 60px;
+    background-color: white;
+}
+
+.tiempo-casual {
+    width: 100%;
+    text-align: center;
+}
+
+.tiempo-casual p {
+    font-size: 25px;
+    color: #0d2740;
+}
+
+.tiempo-casual input {
+    width: 90%;
+    accent-color: #fbb923;
+}
+
+.amigo-casual {
+    width: 100%;
+    min-height: 65px;
+    background-color: #188dce;
+    border-radius: 20px;
+    border: 10px solid #188dce;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+}
+
+.icono-copiar {
+    font-size: 30px;
+}
+
+.boton-tutorial-casual,
+.boton-jugar-casual {
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 35px;
+}
+
+.boton-tutorial-casual {
+    background-color: #8199ff;
+}
+
+.boton-jugar-casual {
+    background-color: #0645ff;
+}
+
+.pagina-casual.modo-claro,
+.pagina-casual.modo-claro .fondo-casual {
+    background-color: #e7f3fa;
+}
+
+.pagina-casual.modo-claro .header-casual {
+    background-color: white;
+}
+
+@media (max-width: 600px) {
+    .header-casual {
+        height: 80px;
+        padding: 10px;
+    }
+
+    .header-casual img {
+        width: 145px;
+        height: 60px;
+    }
+
+    .header-casual h1 {
+        font-size: 35px;
+    }
+
+    .fondo-casual {
+        min-height: calc(100vh - 80px);
+        padding: 15px;
+    }
+
+    .panel-casual {
+        padding: 75px 20px 20px;
+    }
+
+    .titulo-tiempo {
+        width: 180px;
+        font-size: 35px;
+        height: 65px;
+    }
+
+    .opciones-tiempo {
+        font-size: 30px;
+    }
+
+    .amigo-casual {
+        font-size: 16px;
+    }
+
+    .boton-tutorial-casual,
+    .boton-jugar-casual {
+        font-size: 28px;
+    }
+}
+
+.pagina-competitivo .titulo-pagina {
+    font-size: 62px;
+}
+
+.competitivo {
+    min-height: calc(100vh - 100px);
+    background-color: #0d2740;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+}
+
+.contenido-competitivo {
+    width: 1050px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: stretch;
+}
+
+.foto-competitivo {
+    position: relative;
+    width: 50%;
+    min-height: 550px;
+    border-radius: 35px;
+    overflow: hidden;
+    background-color: #354f70;
+    background-image: url("../imagenes/fondo/faangio.jfif");
+    background-position: center;
+    background-size: cover;
+}
+
+.boton-jugar-competitivo:hover {
+    background-color: #667fe8;
+    transform: scale(1.03);
+}
+
+.ranking-competitivo {
+    width: 45%;
+    min-height: 550px;
+    border: 4px solid #188dce;
+    border-radius: 20px;
+    background-color: rgba(100, 134, 166, 0.75);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-ranking {
+    background-color: #69809c;
+    color: white;
+    font-size: 55px;
+    text-align: center;
+    padding: 10px;
+}
+
+.lista-ranking {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.fila-ranking {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.puesto {
+    width: 80px;
+    height: 36px;
+    background-color: #188dce;
+    border-radius: 0 25px 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 25px;
+}
+
+.puesto-primero {
+    background-color: #fbb923;
+}
+
+.puesto-segundo {
+    background-color: #98918d;
+}
+
+.puesto-tercero {
+    background-color: #a77d76;
+}
+
+.nombre-ranking {
+    background-color: white;
+    color: black;
+    font-size: 27px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    text-align: center;
+    min-width: 190px;
+}
+
+.pagina-competitivo.modo-claro .competitivo {
+    background-color: #e7f3fa;
+}
+
+.pagina-competitivo.modo-claro .ranking-competitivo {
+    background-color: #a4c8de;
+}
+
+@media (max-width: 800px) {
+    .pagina-competitivo .titulo-pagina {
+        font-size: 35px;
+    }
+
+    .contenido-competitivo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foto-competitivo {
+        width: 100%;
+        min-height: 400px;
+    }
+
+    .ranking-competitivo {
+        width: 100%;
+        min-height: 450px;
+    }
+
+    .boton-jugar-competitivo {
+        font-size: 35px;
+    }
+}
+
+.imagen-fangio {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.boton-jugar-competitivo {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 80%;
+    height: 85px;
+    border-radius: 45px;
+    background-color: #8199ff;
+    color: white;
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    z-index: 2;
+}
+
+.pagina-juego {
+    min-height: 100vh;
+    background-color: #0d2740;
+}
+
+.juego-pantalla {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0d2740;
+}
+
+.juego-encabezado {
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.juego-logo img {
+    width: 230px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.juego-marcadores {
+    display: flex;
+    height: 100%;
+}
+
+.juego-ronda {
+    width: 150px;
+    background-color: #fbb923;
+    color: white;
+    border-radius: 0 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.juego-puntos {
+    width: 125px;
+    background-color: #59bee6;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.juego-ronda span,
+.juego-puntos span {
+    font-size: 23px;
+}
+
+.juego-ronda strong,
+.juego-puntos strong {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.juego-principal {
+    width: min(1200px, 96%);
+    margin: 20px auto;
+}
+
+.juego-tablero {
+    width: 100%;
+    height: 590px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.juego-fotografia {
+    height: 100%;
+    overflow: hidden;
+    background-color: #354f70;
+}
+
+.juego-fotografia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.juego-derecha {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #0d2740;
+}
+
+#mapa-juego {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    background-color: #74cddd;
+    z-index: 1;
+    cursor: crosshair;
+}
+
+.juego-selector-anio {
+    width: 100%;
+    height: 55px;
+    background-color: #fbb923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.juego-selector-anio span {
+    font-size: 38px;
+}
+
+.juego-selector-anio button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.juego-parte-inferior {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 12px;
+}
+
+.juego-boton-continuar {
+    width: calc(50% - 4px);
+    height: 65px;
+    background-color: #8199ff;
+    color: white;
+    font-size: 38px;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.juego-boton-continuar:hover {
+    background-color: #0645ff;
+}
+
+body.modo-claro .juego-pantalla {
+    background-color: #e7f3fa;
+}
+
+body.modo-claro .juego-encabezado {
+    background-color: white;
+}
+
+@media (max-width: 700px) {
+    .juego-encabezado {
+        height: 75px;
+        padding: 0 10px;
+    }
+
+    .juego-logo img {
+        width: 145px;
+        height: 70px;
+    }
+
+    .juego-ronda {
+        width: 80px;
+    }
+
+    .juego-puntos {
+        width: 65px;
+    }
+
+    .juego-ronda span,
+    .juego-puntos span {
+        font-size: 15px;
+    }
+
+    .juego-ronda strong,
+    .juego-puntos strong {
+        font-size: 25px;
+    }
+
+    .juego-tablero {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .juego-fotografia {
+        height: 260px;
+    }
+
+    .juego-derecha {
+        height: 380px;
+    }
+
+    .juego-boton-continuar {
+        width: 100%;
+        height: 55px;
+        font-size: 30px;
+    }
+}
+
+.pantalla-final {
+    min-height: 100vh;
+    background-color: #0d2740;
+}
+
+.contenido-final {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.resultado-final {
+    width: 620px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.caja-puntuacion {
+    width: 100%;
+    min-height: 185px;
+    background-color: #188dce;
+    border-radius: 24px 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.caja-puntuacion h1 {
+    color: white;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.numero-puntuacion {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    color: #fbb923;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+#puntuacion-final {
+    font-size: 95px;
+    line-height: 1;
+}
+
+.puntuacion-maxima {
+    font-size: 39px;
+}
+
+.botones-final {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.boton-reiniciar {
+    width: 75%;
+    height: 65px;
+    background-color: #0645ff;
+    color: white;
+    border-radius: 40px;
+    font-size: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.boton-reiniciar:hover {
+    background-color: #0036cc;
+}
+
+.boton-inicio {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.boton-inicio svg {
+    width: 55px;
+    height: 55px;
+}
+
+body.pantalla-final.modo-claro,
+body.pantalla-final.modo-claro .pagina,
+body.pantalla-final.modo-claro .contenido-final {
+    background-color: #e7f3fa;
+}
+
+@media (max-width: 700px) {
+    .contenido-final {
+        min-height: calc(100vh - 80px);
+        padding: 20px;
+    }
+
+    .resultado-final {
+        gap: 25px;
+    }
+
+    .caja-puntuacion {
+        min-height: 135px;
+        padding: 15px;
+    }
+
+    .caja-puntuacion h1 {
+        font-size: 20px;
+    }
+
+    #puntuacion-final {
+        font-size: clamp(48px, 12vw, 75px);
+    }
+
+    .puntuacion-maxima {
+        font-size: clamp(22px, 5vw, 34px);
+    }
+
+    .botones-final {
+        gap: 15px;
+    }
+
+    .boton-reiniciar {
+        height: 50px;
+        font-size: 28px;
+    }
+
+    .boton-inicio {
+        width: 50px;
+        height: 50px;
+    }
+
+    .boton-inicio svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.tutorial-header {
+    width: 100%;
+}
+
+.tutorial-titulo {
+    font-size: 65px;
+}
+
+.tutorial-main {
+    min-height: calc(100vh - 100px);
+    background-color: #0d2740;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.tutorial-contenedor {
+    width: 1050px;
+    max-width: 100%;
+}
+
+.tutorial-vista[hidden] {
+    display: none;
+}
+
+.tutorial-vista-inicio {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.tutorial-foto-inicio {
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+}
+
+.tutorial-foto-inicio img,
+.tutorial-foto-mapa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tutorial-columna-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.tutorial-texto {
+    background-color: #f7f9fc;
+    color: black;
+    border-radius: 22px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutorial-texto-inicio {
+    width: 100%;
+    min-height: 230px;
+    padding: 25px;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.tutorial-boton {
+    width: 100%;
+    height: 65px;
+    background-color: #59bee6;
+    color: white;
+    border: none;
+    border-radius: 35px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.tutorial-boton:hover {
+    background-color: #38a7d6;
+}
+
+.tutorial-vista-mapa {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.tutorial-columna-foto,
+.tutorial-columna-mapa {
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial-columna-foto {
+    gap: 12px;
+}
+
+.tutorial-foto-mapa {
+    width: 100%;
+    height: 345px;
+    overflow: hidden;
+}
+
+.tutorial-texto-explicacion {
+    flex: 1;
+    min-height: 125px;
+    padding: 18px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+#mapa-tutorial {
+    width: 100%;
+    height: 345px;
+    background-color: #74cddd;
+    z-index: 1;
+    cursor: crosshair;
+}
+
+.tutorial-selector-anio {
+    width: 100%;
+    height: 55px;
+    background-color: #fbb923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.tutorial-selector-anio span {
+    font-size: 36px;
+}
+
+.tutorial-selector-anio button {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.tutorial-barra-anio {
+    height: 35px;
+    background-color: #0d2740;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.tutorial-barra-anio input {
+    width: 100%;
+    height: 13px;
+    appearance: none;
+    background: repeating-linear-gradient(
+        90deg,
+        black 0px,
+        black 3px,
+        transparent 3px,
+        transparent 11px
+    );
+    cursor: pointer;
+}
+
+.tutorial-barra-anio input::-webkit-slider-thumb {
+    appearance: none;
+    width: 17px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #fbb923;
+    border: 2px solid #0d2740;
+}
+
+.tutorial-barra-anio input::-moz-range-thumb {
+    width: 17px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #fbb923;
+    border: 2px solid #0d2740;
+}
+
+.tutorial-columna-mapa .tutorial-boton {
+    margin-top: 12px;
+}
+
+.tutorial-boton-final {
+    background-color: #0645ff;
+}
+
+.tutorial-boton-final:hover {
+    background-color: #0036cc;
+}
+
+body.modo-claro .tutorial-main {
+    background-color: #e7f3fa;
+}
+
+@media (max-width: 750px) {
+    .tutorial-titulo {
+        font-size: 38px;
+    }
+
+    .tutorial-main {
+        padding: 15px;
+    }
+
+    .tutorial-vista-inicio,
+    .tutorial-vista-mapa {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .tutorial-foto-inicio {
+        height: 240px;
+    }
+
+    .tutorial-columna-inicio {
+        gap: 15px;
+    }
+
+    .tutorial-texto-inicio {
+        min-height: 120px;
+        font-size: 18px;
+    }
+
+    .tutorial-foto-mapa {
+        height: 210px;
+    }
+
+    .tutorial-texto-explicacion {
+        min-height: 100px;
+        font-size: 15px;
+    }
+
+    #mapa-tutorial {
+        height: 260px;
+    }
+
+    .tutorial-boton {
+        height: 52px;
+        font-size: 28px;
+    }
+}
+
+.futbol-encabezado {
+    gap: 20px;
+}
+
+.futbol-titulo-imagen {
+    display: block;
+    width: min(390px, 45%);
+    height: 80px;
+    object-fit: contain;
+}
+
+.futbol-fondo {
+    position: relative;
+    min-height: calc(100vh - 100px);
+    background-color: #0d2740;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.futbol-fondo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../imagenes/fondo/bocha.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 155%;
+    z-index: -1;
+}
+
+.futbol-panel {
+    width: 850px;
+    max-width: 94%;
+    min-height: 600px;
+    background-color: #59bee6;
+    border-radius: 25px;
+    padding: 25px 65px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.futbol-tiempo-titulo {
+    background-color: #0d2740;
+    color: white;
+    width: 220px;
+    padding: 7px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    font-size: 43px;
+}
+
+.futbol-opciones {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    background-color: #0d2740;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.futbol-opcion {
+    flex: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 35px;
+}
+
+.futbol-seleccionado {
+    color: #fbb923;
+}
+
+.futbol-separador {
+    width: 8px;
+    height: 100%;
+    background-color: white;
+}
+
+.futbol-duracion {
+    width: 100%;
+    text-align: center;
+    color: #0d2740;
+    font-size: 25px;
+}
+
+.futbol-duracion[hidden] {
+    display: none;
+}
+
+.futbol-duracion input {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    accent-color: #fbb923;
+    cursor: pointer;
+}
+
+.futbol-tutorial,
+.futbol-jugar {
+    width: 100%;
+    min-height: 75px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 42px;
+}
+
+.futbol-tutorial {
+    background-color: #8199ff;
+}
+
+.futbol-jugar {
+    background-color: #0645ff;
+}
+
+.futbol-tutorial:hover {
+    background-color: #667fe8;
+}
+
+.futbol-jugar:hover {
+    background-color: #0036cc;
+}
+
+body.pagina-futbol.modo-claro .futbol-panel {
+    background-color: #8bd1ed;
+}
+
+.juego-temporizador {
+    width: 76px;
+    height: 76px;
+    margin: auto 12px;
+    background-color: #59bee6;
+    color: #0d2740;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    white-space: nowrap;
+}
+
+.juego-temporizador[hidden] {
+    display: none;
+}
+
+.pagina-juego .juego-logo img {
+    width: 330px;
+    height: 100px;
+    object-fit: contain;
+    transform: scale(1.2);
+    transform-origin: left center;
+}
+
+@media (max-width: 700px) {
+    .futbol-titulo-imagen {
+        width: 50%;
+        height: 60px;
+    }
+
+    .futbol-fondo {
+        min-height: calc(100vh - 80px);
+        padding: 18px;
+    }
+
+    .futbol-fondo::before {
+        background-size: auto 130%;
+    }
+
+    .futbol-panel {
+        padding: 0 22px 20px;
+        gap: 15px;
+        min-height: auto;
+    }
+
+    .futbol-tiempo-titulo {
+        width: 170px;
+        font-size: 34px;
+    }
+
+    .futbol-opciones {
+        height: 45px;
+    }
+
+    .futbol-opcion {
+        font-size: 28px;
+    }
+
+    .futbol-tutorial,
+    .futbol-jugar {
+        min-height: 47px;
+        font-size: 27px;
+    }
+
+    .juego-temporizador {
+        width: 51px;
+        height: 51px;
+        margin: auto 5px;
+        font-size: 19px;
+    }
+
+    .pagina-juego .juego-logo img {
+        width: 140px;
+        height: 70px;
+        transform: none;
+    }
+
+    .juego-barra-contenedor {
+        height: 30px;
+    }
+}
+
+.juego-barra-contenedor {
+    overflow: visible;
+    width: 100%;
+    height: 28px;
+    background-color: #0d2740;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+}
+
+#barra-anio::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #fbb923;
+    border: 1px solid #0d2740;
+}
+
+#barra-anio::-moz-range-thumb {
+    width: 15px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #fbb923;
+    border: 1px solid #0d2740;
+}
+
+#barra-anio {
+    display: block;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    background-image: linear-gradient( 90deg, transparent 0% 30%, #020b13 30% 70%, transparent 70% 100% );
+    background-size: 8px 100%;
+    background-repeat: repeat-x;
+    background-position: center;
+}
+
+#mensaje-final {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+body:not(.modo-claro),
+body:not(.modo-claro) .pagina,
+body:not(.modo-claro) .home,
+body:not(.modo-claro) .login,
+body:not(.modo-claro) .settings,
+body:not(.modo-claro) .fondo-casual,
+body:not(.modo-claro) .competitivo,
+body:not(.modo-claro) .juego-pantalla,
+body:not(.modo-claro) .tutorial-main,
+body:not(.modo-claro) .futbol-fondo,
+body:not(.modo-claro) .contenido-final {
+    background-color: #356789;
+}
+
+.caja-settings .interruptor {
+    width: 60px;
+    height: 30px;
+}
+
+.caja-settings .deslizador {
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.caja-settings .deslizador::before {
+    width: 30px;
+    height: 26px;
+    top: 0;
+    left: 0;
+    background-color: black;
+    border-radius: 20px;
+    transform: translateX(0);
+}
+
+.caja-settings .interruptor input:checked + .deslizador {
+    background-color: #00e600;
+}
+
+.caja-settings .interruptor input:checked + .deslizador::before {
+    transform: translateX(26px);
+}
+
+.panel-casual {
+    width: 850px;
+    max-width: 94%;
+    min-height: 600px;
+    padding: 95px 65px 35px;
+    justify-content: center;
+    gap: 25px;
+}
+
+.opciones-tiempo {
+    height: 75px;
+    font-size: 44px;
+}
+
+.separador-tiempo {
+    height: 75px;
+}
+
+.amigo-casual {
+    min-height: 80px;
+    font-size: 26px;
+}
+
+.boton-tutorial-casual,
+.boton-jugar-casual {
+    height: 75px;
+    font-size: 42px;
+}
+
+@media (max-width: 600px) {
+    .panel-casual {
+        min-height: auto;
+        width: 100%;
+        padding: 75px 20px 25px;
+        gap: 16px;
+    }
+
+    .opciones-tiempo,
+    .separador-tiempo {
+        height: 55px;
+    }
+
+    .amigo-casual {
+        font-size: 17px;
+    }
+
+    .boton-tutorial-casual,
+    .boton-jugar-casual {
+        height: 55px;
+        font-size: 29px;
+    }
+}
+
+.boton-tiempo-casual {
+    width: 45%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: inherit;
+}
+
+.boton-tiempo-casual.seleccionado {
+    color: #fbb923;
+}
+
+.boton-tiempo-casual:hover {
+    color: #fbb923;
+}
+
+.tiempo-casual[hidden] {
+    display: none;
+}
+
+@media (min-width: 801px) {
+    .competitivo {
+        min-height: calc(100vh - 100px);
+        padding: 25px 3%;
+    }
+
+    .contenido-competitivo {
+        width: 100%;
+        max-width: none;
+        height: calc(100vh - 150px);
+        min-height: 520px;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    .foto-competitivo {
+        flex: 1.05;
+        width: 0;
+        min-height: 0;
+    }
+
+    .ranking-competitivo {
+        flex: 1;
+        width: 0;
+        min-height: 0;
     }
 }

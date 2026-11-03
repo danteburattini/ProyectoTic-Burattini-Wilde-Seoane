@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentum Time Guesser - Tutorial</title>
+    <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body class="pagina-tutorial">
+    <div class="pagina">
+        <header class="header header-secundario tutorial-header">
+            <a href="../home/home.html" class="logo-secundario">
+                <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
+            </a>
+
+            <h1 class="titulo-pagina tutorial-titulo">TUTORIAL</h1>
+        </header>
+
+        <main class="tutorial-main">
+            <div class="tutorial-contenedor">
+
+                <section class="tutorial-vista tutorial-vista-inicio" id="tutorial-inicio">
+                    <div class="tutorial-foto-inicio">
+                        <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica">
+                    </div>
+
+                    <div class="tutorial-columna-inicio">
+                        <div class="tutorial-texto tutorial-texto-inicio">
+                            Primero, te dan una foto de un lugar histórico y famoso de Argentina.
+                        </div>
+
+                        <button type="button" class="tutorial-boton" id="tutorial-empezar">
+                            SIGUIENTE
+                        </button>
+                    </div>
+                </section>
+
+                <section class="tutorial-vista tutorial-vista-mapa" id="tutorial-explicacion" hidden>
+                    <div class="tutorial-columna-foto">
+                        <div class="tutorial-foto-mapa">
+                            <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica">
+                        </div>
+
+                        <div class="tutorial-texto tutorial-texto-explicacion" id="tutorial-descripcion">
+                            A partir de la foto tenés que ubicar en el mapa dónde creés que fue sacada y, en la línea de tiempo, el año en el que fue sacada.
+                        </div>
+                    </div>
+
+                    <div class="tutorial-columna-mapa">
+                        <div id="mapa-tutorial"></div>
+
+                        <div class="tutorial-selector-anio">
+                            <button type="button" id="tutorial-anterior">◀</button>
+                            <span id="tutorial-anio">2026</span>
+                            <button type="button" id="tutorial-siguiente-anio">▶</button>
+                        </div>
+
+                        <div class="tutorial-barra-anio">
+                            <input type="range" min="1900" max="2026" value="2026" id="tutorial-range">
+                        </div>
+
+                        <button type="button" class="tutorial-boton" id="tutorial-avanzar">
+                            SIGUIENTE
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../tema.js"></script>
+    <script src="../audio.js"></script>
+    <script src="tutorial.js"></script>
+</body>
+</html>

@@ -1,28 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modo Fútbol</title>
-  <link rel="stylesheet" href="../estilos/argentumtimeguessr.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentum Time Guesser - Fútbol</title>
+    <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
-<body class="futbol-bg">
+<body class="pagina-futbol">
+    <div class="pagina">
+        <header class="header header-secundario futbol-encabezado">
+            <a href="../home/home.html" class="logo-secundario">
+                <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
+            </a>
+            <img class="futbol-titulo-imagen" src="../../imagenes/modo Futbol.png" alt="Modo Fútbol">
+        </header>
 
-  <header class="header">
-    <a href="../home/home.html" class="header-icon">🏠</a>
-    <div class="logo-container">
-      <div class="logo-stars">★ ★ ★</div>
-      <div class="logo-title">ARGENTUM TIME GUESSER</div>
+        <main class="futbol-fondo">
+            <div class="futbol-panel">
+                <div class="futbol-tiempo-titulo">TIEMPO</div>
+
+                <div class="futbol-opciones">
+                    <button type="button" id="tiempo-si" class="futbol-opcion" aria-pressed="false">SÍ</button>
+                    <div class="futbol-separador"></div>
+                    <button type="button" id="tiempo-no" class="futbol-opcion futbol-seleccionado" aria-pressed="true">NO</button>
+                </div>
+
+                <div class="futbol-duracion" id="futbol-duracion" hidden>
+                    <span id="futbol-minutos">9 MIN</span>
+                    <input type="range" id="futbol-barra-tiempo" min="1" max="10" value="9">
+                </div>
+
+                <a href="../tutorial/tutorial.html?desde=futbol" class="futbol-tutorial">
+                    ¿CÓMO SE JUEGA?
+                </a>
+
+                <a href="../juego/juego.html" id="futbol-jugar" class="futbol-jugar">
+                    JUGAR
+                </a>
+            </div>
+        </main>
     </div>
-    <div class="title-section">MODO FUTBOL</div>
-  </header>
 
-  <main class="page-container">
-    <div class="futbol-card">
-      <div class="futbol-info-box"></div>
-      <a href="../juego/juego.html" class="btn-blue-action" style="width: 80%;">JUGAR</a>
-    </div>
-  </main>
-
+    <script src="../tema.js"></script>
+    <script src="../audio.js"></script>
+    <script src="modofutbol.js"></script>
 </body>
 </html>

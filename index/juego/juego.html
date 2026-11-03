@@ -1,44 +1,69 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juego</title>
-  <link rel="stylesheet" href="../estilos/argentumtimeguessr.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentum Time Guesser - Juego</title>
+    <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
-<body>
+<body class="pagina-juego">
+    <div class="juego-pantalla">
+        <header class="juego-encabezado">
+            <a href="../home/home.html" class="juego-logo">
+                <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
+            </a>
 
-  <header class="game-header">
-    <div class="logo-container" style="padding: 10px 20px;">
-      <div class="logo-stars">★ ★ ★</div>
-      <div class="logo-title">ARGENTUM TIME GUESSER</div>
-    </div>
-    <div class="game-score-board">
-      <div class="score-box score-round">
-        <span>ROUND</span>
-        <span class="score-val">1/5</span>
-      </div>
-      <div class="score-box score-points">
-        <span>POINTS</span>
-        <span class="score-val">0</span>
-      </div>
-    </div>
-  </header>
+            <div class="juego-marcadores">
+                <div class="juego-temporizador" id="temporizador-juego">
+                    <span id="tiempo-restante">9:00</span>
+                </div>
 
-  <main class="game-content">
-    <div class="game-photo-container">
-      <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?q=80&w=800" alt="Foto Historica" class="game-photo">
+                <div class="juego-ronda">
+                    <span>ROUND</span>
+                    <strong id="numero-ronda">1/5</strong>
+                </div>
+
+                <div class="juego-puntos">
+                    <span>POINTS</span>
+                    <strong id="puntos-juego">0</strong>
+                </div>
+            </div>
+        </header>
+
+        <main class="juego-principal">
+            <div class="juego-tablero">
+                <div class="juego-fotografia">
+                    <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica" id="imagen-juego">
+                </div>
+
+                <div class="juego-derecha">
+                    <div id="mapa-juego"></div>
+
+                    <div class="juego-selector-anio">
+                        <button type="button" id="anio-anterior">◀</button>
+                        <span id="anio-elegido">2026</span>
+                        <button type="button" id="anio-siguiente">▶</button>
+                    </div>
+
+                    <div class="juego-barra-contenedor">
+                        <input type="range" id="barra-anio" min="1900" max="2026" value="2026">
+                    </div>
+                </div>
+            </div>
+
+            <div class="juego-parte-inferior">
+                <button type="button" id="continuar-juego" class="juego-boton-continuar">
+                    CONTINUAR
+                </button>
+            </div>
+        </main>
     </div>
 
-    <div class="game-map-container">
-      <iframe class="game-map" src="https://maps.google.com/maps?q=Buenos%20Aires&t=&z=5&ie=UTF8&iwloc=&output=embed"></iframe>
-      <div class="year-selector">
-        <button class="year-btn">◄</button>
-        <span>2026</span>
-        <button class="year-btn">►</button>
-      </div>
-    </div>
-  </main>
-
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../tema.js"></script>
+    <script src="../audio.js"></script>
+    <script src="juego.js"></script>
 </body>
 </html>
