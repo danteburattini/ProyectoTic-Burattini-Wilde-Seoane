@@ -17,18 +17,22 @@
 
         <main class="contenido-final">
             <div class="resultado-final">
-                <div class="caja-puntuacion">
-                    <h1>PUNTUACIÓN FINAL</h1>
+                <section class="caja-puntuacion" aria-labelledby="titulo-final">
+                    <h1 id="titulo-final">PUNTUACIÓN FINAL</h1>
 
                     <div class="numero-puntuacion">
-                        <span id="puntuacion-final">--</span>
+                        <output id="puntuacion-final">--</output>
                         <span class="puntuacion-maxima">/50.000</span>
                     </div>
 
-                    <p id="mensaje-final"></p>
-                </div>
+                    <p id="mensaje-final" role="status"></p>
+                    <details id="detalle-rondas" hidden>
+                        <summary>Ver respuestas de las cinco rondas</summary>
+                        <ol id="rondas-finales"></ol>
+                    </details>
+                </section>
 
-                <div class="botones-final">
+                <nav class="botones-final" aria-label="Opciones después de la partida">
                     <a href="../juego/juego.html" id="jugar-de-nuevo" class="boton-reiniciar">
                         JUGAR DE NUEVO
                     </a>
@@ -38,7 +42,7 @@
                             <path d="M12 2 1 11h3v11h6v-7h4v7h6V11h3L12 2z"></path>
                         </svg>
                     </a>
-                </div>
+                </nav>
             </div>
         </main>
     </div>

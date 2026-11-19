@@ -2,7 +2,7 @@
 const competitivo = document.getElementById("competitivo");
 
 competitivo.addEventListener("click", function(evento) {
-    const usuario = sessionStorage.getItem("usuario");
+    const usuario = sessionStorage.getItem("tokenSesion");
 
     if (!usuario) {
         evento.preventDefault();

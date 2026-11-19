@@ -7,7 +7,6 @@
     <title>Argentum Time Guesser - Login</title>
     <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
-<script src="../tema.js"></script>
 <body>
     <div class="pagina">
         <header class="header header-secundario">
@@ -26,21 +25,25 @@
                     </svg>
                 </div>
 
-                <input type="email" id="email" placeholder="USUARIO (EMAIL)" autocomplete="email" required>
+                <label for="email" class="solo-lectores">Correo electrónico</label>
+                <input type="email" name="email" id="email" placeholder="USUARIO (EMAIL)" autocomplete="email" required>
 
-                <input type="password" id="password" placeholder="CONTRASEÑA" autocomplete="current-password" required>
+                <label for="password" class="solo-lectores">Contraseña</label>
+                <input type="password" name="password" id="password" placeholder="CONTRASEÑA" autocomplete="current-password" required>
 
                 <p id="mensaje-login" class="mensaje-login" aria-live="polite"></p>
 
                 <button type="submit" class="boton-login" id="boton-login">LOG IN</button>
             </form>
 
+            <button type="button" id="cerrar-sesion" class="cambiar-login" hidden>CERRAR SESIÓN</button>
             <button type="button" class="cambiar-login" id="cambiar-login">¿NO TENÉS CUENTA? REGISTRATE</button>
 
             <a href="../home/home.html" class="volver-login">VOLVER AL INICIO</a>
         </main>
     </div>
 
+    <script src="../tema.js"></script>
     <script src="login.js"></script>
 </body>
 </html>

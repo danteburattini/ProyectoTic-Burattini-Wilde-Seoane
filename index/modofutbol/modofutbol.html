@@ -13,12 +13,12 @@
             <a href="../home/home.html" class="logo-secundario">
                 <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
             </a>
-            <img class="futbol-titulo-imagen" src="../../imagenes/modo Futbol.png" alt="Modo Fútbol">
+            <h1 class="futbol-titulo"><img class="futbol-titulo-imagen" src="../../imagenes/modo Futbol.png" alt="Modo Fútbol"></h1>
         </header>
 
         <main class="futbol-fondo">
-            <div class="futbol-panel">
-                <div class="futbol-tiempo-titulo">TIEMPO</div>
+            <section class="futbol-panel" aria-labelledby="titulo-tiempo-futbol">
+                <h2 class="futbol-tiempo-titulo" id="titulo-tiempo-futbol">TIEMPO</h2>
 
                 <div class="futbol-opciones">
                     <button type="button" id="tiempo-si" class="futbol-opcion" aria-pressed="false">SÍ</button>
@@ -27,8 +27,8 @@
                 </div>
 
                 <div class="futbol-duracion" id="futbol-duracion" hidden>
-                    <span id="futbol-minutos">9 MIN</span>
-                    <input type="range" id="futbol-barra-tiempo" min="1" max="10" value="9">
+                    <output id="futbol-minutos" for="futbol-barra-tiempo">9 MIN</output>
+                    <input type="range" id="futbol-barra-tiempo" aria-label="Minutos de juego" min="1" max="10" value="9">
                 </div>
 
                 <a href="../tutorial/tutorial.html?desde=futbol" class="futbol-tutorial">
@@ -38,7 +38,7 @@
                 <a href="../juego/juego.html" id="futbol-jugar" class="futbol-jugar">
                     JUGAR
                 </a>
-            </div>
+            </section>
         </main>
     </div>
 

@@ -22,14 +22,14 @@
             <div class="tutorial-contenedor">
 
                 <section class="tutorial-vista tutorial-vista-inicio" id="tutorial-inicio">
-                    <div class="tutorial-foto-inicio">
+                    <figure class="tutorial-foto-inicio">
                         <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica">
-                    </div>
+                    </figure>
 
                     <div class="tutorial-columna-inicio">
-                        <div class="tutorial-texto tutorial-texto-inicio">
+                        <p class="tutorial-texto tutorial-texto-inicio">
                             Primero, te dan una foto de un lugar histórico y famoso de Argentina.
-                        </div>
+                        </p>
 
                         <button type="button" class="tutorial-boton" id="tutorial-empezar">
                             SIGUIENTE
@@ -39,26 +39,26 @@
 
                 <section class="tutorial-vista tutorial-vista-mapa" id="tutorial-explicacion" hidden>
                     <div class="tutorial-columna-foto">
-                        <div class="tutorial-foto-mapa">
+                        <figure class="tutorial-foto-mapa">
                             <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica">
-                        </div>
+                        </figure>
 
-                        <div class="tutorial-texto tutorial-texto-explicacion" id="tutorial-descripcion">
+                        <p class="tutorial-texto tutorial-texto-explicacion" id="tutorial-descripcion">
                             A partir de la foto tenés que ubicar en el mapa dónde creés que fue sacada y, en la línea de tiempo, el año en el que fue sacada.
-                        </div>
+                        </p>
                     </div>
 
                     <div class="tutorial-columna-mapa">
-                        <div id="mapa-tutorial"></div>
+                        <div id="mapa-tutorial" aria-label="Mapa de práctica" role="region"></div>
 
                         <div class="tutorial-selector-anio">
-                            <button type="button" id="tutorial-anterior">◀</button>
-                            <span id="tutorial-anio">2026</span>
-                            <button type="button" id="tutorial-siguiente-anio">▶</button>
+                            <button type="button" id="tutorial-anterior" aria-label="Año anterior">◀</button>
+                            <output id="tutorial-anio" for="tutorial-range">2026</output>
+                            <button type="button" id="tutorial-siguiente-anio" aria-label="Año siguiente">▶</button>
                         </div>
 
                         <div class="tutorial-barra-anio">
-                            <input type="range" min="1900" max="2026" value="2026" id="tutorial-range">
+                            <input type="range" min="1900" max="2026" value="2026" id="tutorial-range" aria-label="Año de práctica">
                         </div>
 
                         <button type="button" class="tutorial-boton" id="tutorial-avanzar">

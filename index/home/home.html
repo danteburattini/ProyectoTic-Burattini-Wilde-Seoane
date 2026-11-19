@@ -7,7 +7,6 @@
     <title>Argentum Time Guesser - Home</title>
     <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
-<script src="../tema.js"></script>
 <body>
     <div class="pagina">
         <header class="header">
@@ -18,11 +17,11 @@
                 </svg>
             </a>
 
-            <a href="home.html" class="logo-home">
+            <h1 class="logo-home">
                 <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
-            </a>
+            </h1>
 
-            <a href="../login/login.html" class="icono-header perfil" aria-label="Iniciar sesión">
+            <a href="../login/login.html" class="icono-header perfil" aria-label="Cuenta">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <circle cx="12" cy="8" r="5"></circle>
                     <path d="M3 23c0-5 4-9 9-9s9 4 9 9"></path>
@@ -31,7 +30,7 @@
         </header>
 
         <main class="home">
-            <div class="tarjetas">
+            <nav class="tarjetas" aria-label="Modos de juego">
                 <a href="../modocompetitivo/modocompetitivo.html" class="tarjeta" id="competitivo">
                     <img src="../../imagenes/fondo/monzon.jfif" class="foto-modo" alt="Carlos Monzón">
                     <span class="nombre-modo">MODO COMPETITIVO</span>
@@ -46,7 +45,7 @@
                     <img src="../../imagenes/fondo/messsi.jfif" class="foto-modo" alt="Lionel Messi">
                     <span class="nombre-modo">MODO FUTBOL</span>
                 </a>
-            </div>
+            </nav>
         </main>
     </div>
 

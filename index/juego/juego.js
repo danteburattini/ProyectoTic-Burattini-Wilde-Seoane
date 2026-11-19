@@ -1,5 +1,5 @@
 
-const API = "http://localhost:3000";
+const API = "http://" + window.location.hostname + ":3000";
 const foto = document.getElementById("imagen-juego");
 const numeroRonda = document.getElementById("numero-ronda");
 const puntos = document.getElementById("puntos-juego");
@@ -9,17 +9,41 @@ const anioElegido = document.getElementById("anio-elegido");
 const reloj = document.getElementById("temporizador-juego");
 const tiempoRestante = document.getElementById("tiempo-restante");
 
-let modo = sessionStorage.getItem("modoJuego") || "Casual";
+const desafio = new URLSearchParams(window.location.search).get("desafio");
+const modo = desafio ? "Casual" : sessionStorage.getItem("modoJuego") || "Casual";
+if (desafio) sessionStorage.setItem("modoJuego", "Casual");
+const token = sessionStorage.getItem("tokenSesion");
 
-if (document.referrer.includes("/modocompetitivo/")) {
-    modo = "Competitivo";
-} else if (document.referrer.includes("/modofutbol/")) {
-    modo = "Fútbol";
-} else if (document.referrer.includes("/modocasual/")) {
-    modo = "Casual";
+function volverAlLogin() {
+    sessionStorage.removeItem("tokenSesion");
+    sessionStorage.removeItem("usuario");
+    window.location.replace("../login/login.html?volver=competitivo");
 }
 
-sessionStorage.setItem("modoJuego", modo);
+async function solicitarJuego(accion, datos) {
+    const headers = { "Content-Type": "application/json" };
+    if (token) {
+        headers.Authorization = "Bearer " + token;
+    }
+
+    const respuesta = await fetch(API + "/api/juego/" + accion, {
+        method: "POST",
+        headers,
+        body: JSON.stringify(datos)
+    });
+
+    if (respuesta.status === 401 && modo === "Competitivo") {
+        volverAlLogin();
+        return;
+    }
+
+    const resultado = await respuesta.json();
+    if (!respuesta.ok) {
+        throw new Error(resultado.error || "No se pudo procesar la partida");
+    }
+
+    return resultado;
+}
 
 const mapa = L.map("mapa-juego", {
     minZoom: 3,
@@ -39,26 +63,31 @@ let geometriaArgentina = null;
 let marcador = null;
 let ubicacion = null;
 let fotos = [];
+let partidaId;
 let ronda = 0;
 let respuestas = [];
 let finalizando = false;
 let intervalo = null;
 
+// Cada anillo es una lista de coordenadas que dibuja un borde en el mapa.
 function puntoEnAnillo(punto, anillo) {
     let adentro = false;
     const x = punto.lng;
     const y = punto.lat;
 
-    for (let i = 0, j = anillo.length - 1; i < anillo.length; j = i++) {
-        const xi = anillo[i][0];
-        const yi = anillo[i][1];
-        const xj = anillo[j][0];
-        const yj = anillo[j][1];
-        const cruza = (yi > y) !== (yj > y);
+    let anterior = anillo[anillo.length - 1];
+    for (const actual of anillo) {
+        const cruzaAltura = (actual[1] > y) !== (anterior[1] > y);
 
-        if (cruza && x < (xj - xi) * (y - yi) / (yj - yi) + xi) {
-            adentro = !adentro;
+        if (cruzaAltura) {
+            const cruce = actual[0] + (anterior[0] - actual[0]) *
+                (y - actual[1]) / (anterior[1] - actual[1]);
+            if (x < cruce) {
+                adentro = !adentro;
+            }
         }
+
+        anterior = actual;
     }
 
     return adentro;
@@ -119,34 +148,11 @@ document.getElementById("anio-siguiente").addEventListener("click", function() {
 });
 
 function mostrarFoto(ruta) {
-    const rutas = [];
-
-    if (ruta.startsWith("http://") || ruta.startsWith("https://")) {
-        rutas.push(ruta);
-    } else {
-        const limpia = ruta.replace(/^\/+/, "").replace(/^\.\//, "");
-
-        if (limpia.startsWith("imagenes/")) {
-            rutas.push("../../" + limpia);
-        }
-
-        rutas.push(new URL(limpia, API + "/").href);
-        rutas.push("../../" + limpia);
-    }
-
-    let intento = 0;
-
+    foto.alt = "Fotografía de la ronda";
     foto.onerror = function() {
-        intento++;
-
-        if (intento < rutas.length) {
-            foto.src = rutas[intento];
-        } else {
-            foto.alt = "No se pudo cargar la fotografía";
-        }
+        foto.alt = "No se pudo cargar la fotografía";
     };
-
-    foto.src = rutas[0];
+    foto.src = new URL(ruta, API + "/").href;
 }
 
 function mostrarRonda() {
@@ -197,15 +203,6 @@ function guardarRespuestasPendientes() {
     if (ubicacion && ronda < fotos.length) {
         respuestas.push(respuestaActual());
     }
-
-    for (let i = respuestas.length; i < fotos.length; i++) {
-        respuestas.push({
-            id: fotos[i].id,
-            latClick: 0,
-            lngClick: 0,
-            añoClick: 0
-        });
-    }
 }
 
 function sonarAlarma() {
@@ -213,7 +210,7 @@ function sonarAlarma() {
         return Promise.resolve();
     }
 
-    const alarma = new Audio("../../sonidos/alarma-reloj.wav");
+    const alarma = new Audio("../../sonidos/alarma-reloj-nueva.wav");
     alarma.volume = 0.4;
 
     return new Promise(function(resolver) {
@@ -246,30 +243,17 @@ async function terminarPartida(porTiempo) {
     const sonido = porTiempo ? sonarAlarma() : Promise.resolve();
 
     try {
-        const jugador = sessionStorage.getItem("usuario") || "Invitado";
-
-        const respuesta = await fetch(API + "/api/juego/finalizar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                modo,
-                jugador,
-                respuestas
-            })
-        });
-
-        const datos = await respuesta.json();
-
-        if (!respuesta.ok) {
-            throw new Error(datos.error || "No se pudo guardar la partida");
+        const datos = await solicitarJuego("finalizar", { modo: modo, partidaId: partidaId, respuestas: respuestas });
+        if (!datos) {
+            return;
         }
 
         sessionStorage.setItem("puntajeFinal", String(datos.puntaje_final));
+        sessionStorage.setItem("rondasFinales", JSON.stringify(datos.rondas));
         sessionStorage.removeItem("errorPuntaje");
     } catch (error) {
         sessionStorage.removeItem("puntajeFinal");
+        sessionStorage.removeItem("rondasFinales");
         sessionStorage.setItem(
             "errorPuntaje",
             "No se pudo calcular el puntaje. Revisá el backend."
@@ -305,6 +289,7 @@ function iniciarReloj() {
         const minutosRestantes = Math.floor(segundos / 60);
         const segundosRestantes = String(segundos % 60).padStart(2, "0");
 
+        tiempoRestante.dateTime = "PT" + segundos + "S";
         tiempoRestante.textContent = minutosRestantes + ":" + segundosRestantes;
 
         if (segundos === 0) {
@@ -345,23 +330,17 @@ async function iniciarPartida() {
             padding: [10, 10]
         });
 
-        const respuesta = await fetch(API + "/api/juego/iniciar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                modo
-            })
-        });
-
-        const datos = await respuesta.json();
-
-        if (!respuesta.ok || !Array.isArray(datos) || datos.length === 0) {
-            throw new Error(datos.error || "El backend no devolvió fotos");
+        const datos = await solicitarJuego("iniciar", { modo: modo, desafio: desafio });
+        if (!datos) {
+            return;
         }
 
-        fotos = datos;
+        if (!datos.partidaId || !Array.isArray(datos.fotos) || datos.fotos.length === 0) {
+            throw new Error("El backend no devolvió fotos");
+        }
+
+        partidaId = datos.partidaId;
+        fotos = datos.fotos;
         respuestas = [];
         ronda = 0;
 
@@ -377,4 +356,8 @@ async function iniciarPartida() {
     }
 }
 
-iniciarPartida();
+if (modo === "Competitivo" && !token) {
+    volverAlLogin();
+} else {
+    iniciarPartida();
+}

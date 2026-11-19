@@ -17,12 +17,12 @@
 
             <div class="juego-marcadores">
                 <div class="juego-temporizador" id="temporizador-juego">
-                    <span id="tiempo-restante">9:00</span>
+                    <time id="tiempo-restante" datetime="PT9M">9:00</time>
                 </div>
 
                 <div class="juego-ronda">
                     <span>ROUND</span>
-                    <strong id="numero-ronda">1/5</strong>
+                    <strong id="numero-ronda" aria-live="polite">1/5</strong>
                 </div>
 
                 <div class="juego-puntos">
@@ -33,22 +33,23 @@
         </header>
 
         <main class="juego-principal">
+            <h1 class="solo-lectores">Partida</h1>
             <div class="juego-tablero">
-                <div class="juego-fotografia">
+                <figure class="juego-fotografia">
                     <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica" id="imagen-juego">
-                </div>
+                </figure>
 
                 <div class="juego-derecha">
-                    <div id="mapa-juego"></div>
+                    <div id="mapa-juego" aria-label="Mapa de Argentina" role="region"></div>
 
                     <div class="juego-selector-anio">
-                        <button type="button" id="anio-anterior">◀</button>
-                        <span id="anio-elegido">2026</span>
-                        <button type="button" id="anio-siguiente">▶</button>
+                        <button type="button" id="anio-anterior" aria-label="Año anterior">◀</button>
+                        <output id="anio-elegido" for="barra-anio">2026</output>
+                        <button type="button" id="anio-siguiente" aria-label="Año siguiente">▶</button>
                     </div>
 
                     <div class="juego-barra-contenedor">
-                        <input type="range" id="barra-anio" min="1900" max="2026" value="2026">
+                        <input type="range" id="barra-anio" aria-label="Año de la fotografía" min="1900" max="2026" value="2026">
                     </div>
                 </div>
             </div>

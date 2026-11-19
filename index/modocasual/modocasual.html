@@ -20,31 +20,40 @@
 
     <main class="fondo-casual">
 
-        <div class="panel-casual">
+        <section class="panel-casual" aria-labelledby="titulo-tiempo-casual">
 
-            <div class="titulo-tiempo">TIEMPO</div>
+            <h2 class="titulo-tiempo" id="titulo-tiempo-casual">TIEMPO</h2>
 
             <div class="opciones-tiempo">
-                <button type="button" id="tiempo-si-casual" class="boton-tiempo-casual seleccionado">
+                <button type="button" id="tiempo-si-casual" aria-pressed="true" class="boton-tiempo-casual seleccionado">
                     SÍ
                 </button>
 
                 <span class="separador-tiempo"></span>
 
-                <button type="button" id="tiempo-no-casual" class="boton-tiempo-casual">
+                <button type="button" id="tiempo-no-casual" aria-pressed="false" class="boton-tiempo-casual">
                     NO
                 </button>
             </div>
 
             <div class="tiempo-casual" id="tiempo-casual">
-                <p id="minutos-casual">9 MIN</p>
-                <input type="range" id="barra-minutos-casual" min="1" max="10" value="9">
+                <output id="minutos-casual" for="barra-minutos-casual">9 MIN</output>
+                <input type="range" id="barra-minutos-casual" aria-label="Minutos de juego" min="1" max="10" value="9">
             </div>
 
-            <div class="amigo-casual">
+            <button type="button" id="crear-desafio" class="amigo-casual">
                 <span>Enfrentarte a un amigo</span>
-                <span class="icono-copiar">▢</span>
-            </div>
+                <span class="icono-copiar" aria-hidden="true">▢</span>
+            </button>
+
+            <section id="invitacion-desafio" aria-label="Invitación" hidden>
+                <label for="enlace-amigo">Mandale este enlace a tu amigo</label>
+                <input type="url" id="enlace-amigo" readonly>
+                <button type="button" id="copiar-desafio">Copiar enlace</button>
+                <a id="jugar-desafio">Empezar mi partida</a>
+                <p id="aviso-local" hidden>Con localhost, el enlace solo funciona en esta compu.</p>
+            </section>
+            <p id="estado-desafio" role="status"></p>
 
             <a href="../tutorial/tutorial.html?desde=casual" class="boton-tutorial-casual">
                 ¿CÓMO SE JUEGA?
@@ -54,7 +63,7 @@
                 JUGAR
             </a>
 
-        </div>
+        </section>
 
     </main>
 

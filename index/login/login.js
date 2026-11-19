@@ -7,16 +7,11 @@ const boton = document.getElementById("boton-login");
 const cambiar = document.getElementById("cambiar-login");
 const titulo = document.getElementById("titulo-login");
 
-const API = "http://localhost:3000";
+const API = window.location.port === "3000" ? window.location.origin : "http://localhost:3000";
 
 let registro = false;
 
-cambiar.addEventListener("click", function() {
-    registro = !registro;
-
-    mensaje.textContent = "";
-    formulario.reset();
-
+function mostrarFormulario() {
     if (registro) {
         titulo.textContent = "REGISTRO";
         boton.textContent = "REGISTRARSE";
@@ -28,6 +23,13 @@ cambiar.addEventListener("click", function() {
         cambiar.textContent = "¿NO TENÉS CUENTA? REGISTRATE";
         password.autocomplete = "current-password";
     }
+}
+
+cambiar.addEventListener("click", function() {
+    registro = !registro;
+    mensaje.textContent = "";
+    formulario.reset();
+    mostrarFormulario();
 });
 
 formulario.addEventListener("submit", async function(evento) {
@@ -60,10 +62,7 @@ formulario.addEventListener("submit", async function(evento) {
 
         if (registro) {
             registro = false;
-            titulo.textContent = "USUARIO";
-            boton.textContent = "LOG IN";
-            cambiar.textContent = "¿NO TENÉS CUENTA? REGISTRATE";
-            password.autocomplete = "current-password";
+            mostrarFormulario();
             password.value = "";
             mensaje.textContent = "Cuenta creada. Ahora iniciá sesión.";
             mensaje.classList.add("mensaje-exito");
@@ -71,6 +70,7 @@ formulario.addEventListener("submit", async function(evento) {
         }
 
         sessionStorage.setItem("usuario", datos.usuario.email);
+        sessionStorage.setItem("tokenSesion", datos.token);
 
         const parametros = new URLSearchParams(window.location.search);
 
@@ -85,4 +85,19 @@ formulario.addEventListener("submit", async function(evento) {
     } finally {
         boton.disabled = false;
     }
+});
+
+const cerrarSesion = document.getElementById("cerrar-sesion");
+const tokenActual = sessionStorage.getItem("tokenSesion");
+cerrarSesion.hidden = !tokenActual;
+
+cerrarSesion.addEventListener("click", function() {
+    fetch(API + "/api/logout", {
+        method: "POST",
+        headers: { Authorization: "Bearer " + tokenActual },
+        keepalive: true
+    }).catch(function() {});
+    sessionStorage.removeItem("tokenSesion");
+    sessionStorage.removeItem("usuario");
+    window.location.href = "../home/home.html";
 });
