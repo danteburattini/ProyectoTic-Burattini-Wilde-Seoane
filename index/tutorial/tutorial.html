@@ -8,60 +8,60 @@
     <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
-<body class="pagina-tutorial">
+<body>
     <div class="pagina">
-        <header class="header header-secundario tutorial-header">
-            <a href="../home/home.html" class="logo-secundario">
+        <header class="header cabeceraSecundaria tutorialHeader">
+            <a href="../home/home.html" class="logoSecundario">
                 <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
             </a>
 
-            <h1 class="titulo-pagina tutorial-titulo">TUTORIAL</h1>
+            <h1 class="titulo tutorialTitulo">TUTORIAL</h1>
         </header>
 
-        <main class="tutorial-main">
-            <div class="tutorial-contenedor">
+        <main class="vistaTutorial">
+            <div class="tutorialContenedor">
 
-                <section class="tutorial-vista tutorial-vista-inicio" id="tutorial-inicio">
-                    <figure class="tutorial-foto-inicio">
+                <section class="tutorialVista portadaTutorial" id="tutorialInicio">
+                    <figure class="tutorialFotoInicio">
                         <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica">
                     </figure>
 
-                    <div class="tutorial-columna-inicio">
-                        <p class="tutorial-texto tutorial-texto-inicio">
+                    <div class="inicioTutorial">
+                        <p class="tutorialTexto tutorialTextoInicio">
                             Primero, te dan una foto de un lugar histórico y famoso de Argentina.
                         </p>
 
-                        <button type="button" class="tutorial-boton" id="tutorial-empezar">
+                        <button type="button" class="tutorialBoton" id="tutorialEmpezar">
                             SIGUIENTE
                         </button>
                     </div>
                 </section>
 
-                <section class="tutorial-vista tutorial-vista-mapa" id="tutorial-explicacion" hidden>
-                    <div class="tutorial-columna-foto">
-                        <figure class="tutorial-foto-mapa">
+                <section class="tutorialVista practicaTutorial" id="tutorialExplicacion" hidden>
+                    <div class="ejemploTutorial">
+                        <figure class="tutorialFotoMapa">
                             <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica">
                         </figure>
 
-                        <p class="tutorial-texto tutorial-texto-explicacion" id="tutorial-descripcion">
+                        <p class="tutorialTexto textoPractica" id="tutorialDescripcion">
                             A partir de la foto tenés que ubicar en el mapa dónde creés que fue sacada y, en la línea de tiempo, el año en el que fue sacada.
                         </p>
                     </div>
 
-                    <div class="tutorial-columna-mapa">
-                        <div id="mapa-tutorial" aria-label="Mapa de práctica" role="region"></div>
+                    <div class="controlesTutorial">
+                        <div id="mapaTutorial" aria-label="Mapa de práctica" role="region"></div>
 
-                        <div class="tutorial-selector-anio">
-                            <button type="button" id="tutorial-anterior" aria-label="Año anterior">◀</button>
-                            <output id="tutorial-anio" for="tutorial-range">2026</output>
-                            <button type="button" id="tutorial-siguiente-anio" aria-label="Año siguiente">▶</button>
+                        <div class="tutorialSelectorAnio">
+                            <button type="button" id="tutorialAnterior" aria-label="Año anterior">◀</button>
+                            <output id="tutorialAnio" for="barraTutorial">2026</output>
+                            <button type="button" id="siguienteAnio" aria-label="Año siguiente">▶</button>
                         </div>
 
-                        <div class="tutorial-barra-anio">
-                            <input type="range" min="1900" max="2026" value="2026" id="tutorial-range" aria-label="Año de práctica">
+                        <div class="tutorialBarraAnio">
+                            <input type="range" min="1900" max="2026" value="2026" id="barraTutorial" aria-label="Año de práctica">
                         </div>
 
-                        <button type="button" class="tutorial-boton" id="tutorial-avanzar">
+                        <button type="button" class="tutorialBoton" id="tutorialAvanzar">
                             SIGUIENTE
                         </button>
                     </div>

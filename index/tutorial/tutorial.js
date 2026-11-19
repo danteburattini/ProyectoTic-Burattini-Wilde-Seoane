@@ -1,14 +1,14 @@
 
-const tutorialInicio = document.getElementById("tutorial-inicio");
-const tutorialExplicacion = document.getElementById("tutorial-explicacion");
-const botonEmpezar = document.getElementById("tutorial-empezar");
-const botonAvanzar = document.getElementById("tutorial-avanzar");
-const descripcion = document.getElementById("tutorial-descripcion");
+const tutorialInicio = document.getElementById("tutorialInicio");
+const tutorialExplicacion = document.getElementById("tutorialExplicacion");
+const botonEmpezar = document.getElementById("tutorialEmpezar");
+const botonAvanzar = document.getElementById("tutorialAvanzar");
+const descripcion = document.getElementById("tutorialDescripcion");
 
-const barraTutorial = document.getElementById("tutorial-range");
-const anioTutorial = document.getElementById("tutorial-anio");
-const anteriorTutorial = document.getElementById("tutorial-anterior");
-const siguienteTutorial = document.getElementById("tutorial-siguiente-anio");
+const barraTutorial = document.getElementById("barraTutorial");
+const anioTutorial = document.getElementById("tutorialAnio");
+const anteriorTutorial = document.getElementById("tutorialAnterior");
+const siguienteTutorial = document.getElementById("siguienteAnio");
 
 let pasoTutorial = 1;
 let mapaTutorial;
@@ -20,7 +20,7 @@ botonEmpezar.addEventListener("click", function() {
     tutorialInicio.hidden = true;
     tutorialExplicacion.hidden = false;
 
-    mapaTutorial = L.map("mapa-tutorial").fitBounds([
+    mapaTutorial = L.map("mapaTutorial").fitBounds([
         [-55, -74],
         [-21, -53]
     ]);
@@ -66,7 +66,7 @@ botonAvanzar.addEventListener("click", function() {
         descripcion.textContent = "Luego de poner el año y el lugar, presioná el botón CONTINUAR para pasar a la siguiente foto.";
 
         botonAvanzar.textContent = "CONTINUAR";
-        botonAvanzar.classList.add("tutorial-boton-final");
+        botonAvanzar.classList.add("tutorialBotonFinal");
     } else {
         const parametros = new URLSearchParams(window.location.search);
         const origen = parametros.get("desde");

@@ -20,7 +20,7 @@ function actualizarAudio() {
     if (localStorage.getItem("musica") === "false") {
         musicaFondo.pause();
     } else if (sessionStorage.getItem("musicaIniciada") === "true" && musicaFondo.paused) {
-        musicaFondo.play().catch(function() {});
+        musicaFondo.play().then(undefined, function() {});
     }
 }
 
@@ -40,14 +40,12 @@ window.addEventListener("pagehide", guardarTiempoMusica);
 
 function reproducirClick() {
     if (localStorage.getItem("sfx") === "false") {
-        return false;
+        return;
     }
 
     sonidoClick.pause();
     sonidoClick.currentTime = 0;
-    sonidoClick.play().catch(function() {});
-
-    return true;
+    sonidoClick.play().then(undefined, function() {});
 }
 
 document.addEventListener("click", function(evento) {

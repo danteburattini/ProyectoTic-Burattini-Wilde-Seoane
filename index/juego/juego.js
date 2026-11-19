@@ -1,13 +1,13 @@
 
 const API = "http://" + window.location.hostname + ":3000";
-const foto = document.getElementById("imagen-juego");
-const numeroRonda = document.getElementById("numero-ronda");
-const puntos = document.getElementById("puntos-juego");
-const botonContinuar = document.getElementById("continuar-juego");
-const barraAnio = document.getElementById("barra-anio");
-const anioElegido = document.getElementById("anio-elegido");
-const reloj = document.getElementById("temporizador-juego");
-const tiempoRestante = document.getElementById("tiempo-restante");
+const foto = document.getElementById("imagenJuego");
+const numeroRonda = document.getElementById("numeroRonda");
+const puntos = document.getElementById("puntosJuego");
+const botonContinuar = document.getElementById("continuarJuego");
+const barraAnio = document.getElementById("barraAnio");
+const anioElegido = document.getElementById("anioElegido");
+const reloj = document.getElementById("temporizadorJuego");
+const tiempoRestante = document.getElementById("tiempoRestante");
 
 const desafio = new URLSearchParams(window.location.search).get("desafio");
 const modo = desafio ? "Casual" : sessionStorage.getItem("modoJuego") || "Casual";
@@ -45,7 +45,7 @@ async function solicitarJuego(accion, datos) {
     return resultado;
 }
 
-const mapa = L.map("mapa-juego", {
+const mapa = L.map("mapaJuego", {
     minZoom: 3,
     maxZoom: 17,
     maxBounds: [[-56, -76], [-20, -52]],
@@ -65,7 +65,7 @@ let ubicacion = null;
 let fotos = [];
 let partidaId;
 let ronda = 0;
-let respuestas = [];
+const respuestas = [];
 let finalizando = false;
 let intervalo = null;
 
@@ -137,12 +137,12 @@ barraAnio.addEventListener("input", function() {
     anioElegido.textContent = barraAnio.value;
 });
 
-document.getElementById("anio-anterior").addEventListener("click", function() {
+document.getElementById("anioAnterior").addEventListener("click", function() {
     barraAnio.value = Math.max(Number(barraAnio.min), Number(barraAnio.value) - 1);
     anioElegido.textContent = barraAnio.value;
 });
 
-document.getElementById("anio-siguiente").addEventListener("click", function() {
+document.getElementById("anioSiguiente").addEventListener("click", function() {
     barraAnio.value = Math.min(Number(barraAnio.max), Number(barraAnio.value) + 1);
     anioElegido.textContent = barraAnio.value;
 });
@@ -222,7 +222,7 @@ function sonarAlarma() {
         };
 
         alarma.onerror = resolver;
-        alarma.play().catch(resolver);
+        alarma.play().then(undefined, resolver);
     });
 }
 
@@ -242,22 +242,27 @@ async function terminarPartida(porTiempo) {
 
     const sonido = porTiempo ? sonarAlarma() : Promise.resolve();
 
-    try {
-        const datos = await solicitarJuego("finalizar", { modo: modo, partidaId: partidaId, respuestas: respuestas });
+    const irAlResultado = await solicitarJuego("finalizar", { modo, partidaId, respuestas }).then(function(datos) {
         if (!datos) {
-            return;
+            return false;
         }
 
         sessionStorage.setItem("puntajeFinal", String(datos.puntaje_final));
         sessionStorage.setItem("rondasFinales", JSON.stringify(datos.rondas));
         sessionStorage.removeItem("errorPuntaje");
-    } catch (error) {
+        return true;
+    }).then(undefined, function() {
         sessionStorage.removeItem("puntajeFinal");
         sessionStorage.removeItem("rondasFinales");
         sessionStorage.setItem(
             "errorPuntaje",
             "No se pudo calcular el puntaje. Revisá el backend."
         );
+        return true;
+    });
+
+    if (!irAlResultado) {
+        return;
     }
 
     await sonido;
@@ -302,62 +307,57 @@ function iniciarReloj() {
 }
 
 async function iniciarPartida() {
-    botonContinuar.disabled = true;
-    botonContinuar.textContent = "CARGANDO...";
+    const limite = await fetch(
+        "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/ARG.geo.json"
+    );
 
-    try {
-        const limite = await fetch(
-            "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/ARG.geo.json"
-        );
-
-        if (!limite.ok) {
-            throw new Error("No se pudo cargar el contorno de Argentina");
-        }
-
-        const pais = await limite.json();
-        geometriaArgentina = pais.features[0].geometry;
-
-        const borde = L.geoJSON(pais, {
-            style: {
-                color: "#fbb923",
-                weight: 2,
-                fillOpacity: 0.04
-            },
-            interactive: false
-        }).addTo(mapa);
-
-        mapa.fitBounds(borde.getBounds(), {
-            padding: [10, 10]
-        });
-
-        const datos = await solicitarJuego("iniciar", { modo: modo, desafio: desafio });
-        if (!datos) {
-            return;
-        }
-
-        if (!datos.partidaId || !Array.isArray(datos.fotos) || datos.fotos.length === 0) {
-            throw new Error("El backend no devolvió fotos");
-        }
-
-        partidaId = datos.partidaId;
-        fotos = datos.fotos;
-        respuestas = [];
-        ronda = 0;
-
-        mostrarRonda();
-
-        botonContinuar.textContent = "CONTINUAR";
-        botonContinuar.disabled = false;
-
-        iniciarReloj();
-    } catch (error) {
-        botonContinuar.textContent = "ERROR AL CARGAR";
-        alert(error.message + ". Revisá la conexión y el servidor.");
+    if (!limite.ok) {
+        throw new Error("No se pudo cargar el contorno de Argentina");
     }
+
+    const pais = await limite.json();
+    geometriaArgentina = pais.features[0].geometry;
+
+    const borde = L.geoJSON(pais, {
+        style: {
+            color: "#fbb923",
+            weight: 2,
+            fillOpacity: 0.04
+        },
+        interactive: false
+    }).addTo(mapa);
+
+    mapa.fitBounds(borde.getBounds(), {
+        padding: [10, 10]
+    });
+
+    const datos = await solicitarJuego("iniciar", { modo: modo, desafio: desafio });
+    if (!datos) {
+        return;
+    }
+
+    if (!datos.partidaId || !Array.isArray(datos.fotos) || datos.fotos.length === 0) {
+        throw new Error("El backend no devolvió fotos");
+    }
+
+    partidaId = datos.partidaId;
+    fotos = datos.fotos;
+
+    mostrarRonda();
+
+    botonContinuar.textContent = "CONTINUAR";
+    botonContinuar.disabled = false;
+
+    iniciarReloj();
 }
 
 if (modo === "Competitivo" && !token) {
     volverAlLogin();
 } else {
-    iniciarPartida();
+    botonContinuar.disabled = true;
+    botonContinuar.textContent = "CARGANDO...";
+    iniciarPartida().then(undefined, function(error) {
+        botonContinuar.textContent = "ERROR AL CARGAR";
+        alert(error.message + ". Revisá la conexión y el servidor.");
+    });
 }

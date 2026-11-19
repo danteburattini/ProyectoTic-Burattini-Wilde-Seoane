@@ -1,13 +1,13 @@
 
-const puntuacion = document.getElementById("puntuacion-final");
+const puntuacion = document.getElementById("puntuacionFinal");
 const errorPuntaje = sessionStorage.getItem("errorPuntaje");
 const puntaje = sessionStorage.getItem("puntajeFinal");
 
-const mensajeFinal = document.getElementById("mensaje-final");
+const mensajeFinal = document.getElementById("mensajeFinal");
 
 function mostrarRondas(rondas) {
-    const detalle = document.getElementById("detalle-rondas");
-    const lista = document.getElementById("rondas-finales");
+    const detalle = document.getElementById("detalleRondas");
+    const lista = document.getElementById("rondasFinales");
 
     lista.replaceChildren();
 
@@ -50,7 +50,7 @@ if (errorPuntaje || puntaje === null) {
     mostrarRondas(rondas);
 }
 
-document.getElementById("jugar-de-nuevo").addEventListener("click", function() {
+document.getElementById("repetirPartida").addEventListener("click", function() {
     sessionStorage.removeItem("finTiempoJuego");
     sessionStorage.removeItem("puntajeFinal");
     sessionStorage.removeItem("rondasFinales");

@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
 </head>
 
-<body class="pagina-casual">
+<body class="paginaCasual">
 
-    <header class="header-casual">
+    <header class="headerCasual">
         <a href="../home/home.html">
             <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
         </a>
@@ -18,48 +18,48 @@
         <h1>MODO CASUAL</h1>
     </header>
 
-    <main class="fondo-casual">
+    <main class="fondoCasual">
 
-        <section class="panel-casual" aria-labelledby="titulo-tiempo-casual">
+        <section class="panelCasual" aria-labelledby="tituloTiempoCasual">
 
-            <h2 class="titulo-tiempo" id="titulo-tiempo-casual">TIEMPO</h2>
+            <h2 class="tituloTiempo" id="tituloTiempoCasual">TIEMPO</h2>
 
-            <div class="opciones-tiempo">
-                <button type="button" id="tiempo-si-casual" aria-pressed="true" class="boton-tiempo-casual seleccionado">
+            <div class="opcionesTiempo">
+                <button type="button" id="tiempoSi" aria-pressed="true" class="botonTiempo seleccionado">
                     SÍ
                 </button>
 
-                <span class="separador-tiempo"></span>
+                <span class="separadorTiempo"></span>
 
-                <button type="button" id="tiempo-no-casual" aria-pressed="false" class="boton-tiempo-casual">
+                <button type="button" id="tiempoNo" aria-pressed="false" class="botonTiempo">
                     NO
                 </button>
             </div>
 
-            <div class="tiempo-casual" id="tiempo-casual">
-                <output id="minutos-casual" for="barra-minutos-casual">9 MIN</output>
-                <input type="range" id="barra-minutos-casual" aria-label="Minutos de juego" min="1" max="10" value="9">
+            <div class="tiempoCasual" id="tiempoCasual">
+                <output id="minutosCasual" for="barraMinutos">9 MIN</output>
+                <input type="range" id="barraMinutos" aria-label="Minutos de juego" min="1" max="10" value="9">
             </div>
 
-            <button type="button" id="crear-desafio" class="amigo-casual">
+            <button type="button" id="crearDesafio" class="amigoCasual">
                 <span>Enfrentarte a un amigo</span>
-                <span class="icono-copiar" aria-hidden="true">▢</span>
+                <span class="iconoCopiar" aria-hidden="true">▢</span>
             </button>
 
-            <section id="invitacion-desafio" aria-label="Invitación" hidden>
-                <label for="enlace-amigo">Mandale este enlace a tu amigo</label>
-                <input type="url" id="enlace-amigo" readonly>
-                <button type="button" id="copiar-desafio">Copiar enlace</button>
-                <a id="jugar-desafio">Empezar mi partida</a>
-                <p id="aviso-local" hidden>Con localhost, el enlace solo funciona en esta compu.</p>
+            <section id="invitacionDesafio" aria-label="Invitación" hidden>
+                <label for="enlaceAmigo">Mandale este enlace a tu amigo</label>
+                <input type="url" id="enlaceAmigo" readonly>
+                <button type="button" id="copiarDesafio">Copiar enlace</button>
+                <a id="jugarDesafio">Empezar mi partida</a>
+                <p id="avisoLocal" hidden>Con localhost, el enlace solo funciona en esta compu.</p>
             </section>
-            <p id="estado-desafio" role="status"></p>
+            <p id="estadoDesafio" role="status"></p>
 
-            <a href="../tutorial/tutorial.html?desde=casual" class="boton-tutorial-casual">
+            <a href="../tutorial/tutorial.html?desde=casual" class="tutorialCasual">
                 ¿CÓMO SE JUEGA?
             </a>
 
-            <a href="../juego/juego.html" class="boton-jugar-casual" id="jugar-casual">
+            <a href="../juego/juego.html" class="botonJugarCasual" id="jugarCasual">
                 JUGAR
             </a>
 

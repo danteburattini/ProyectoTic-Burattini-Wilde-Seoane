@@ -8,54 +8,54 @@
     <link rel="stylesheet" href="../../estilos/argentumtimeguessr.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
-<body class="pagina-juego">
-    <div class="juego-pantalla">
-        <header class="juego-encabezado">
-            <a href="../home/home.html" class="juego-logo">
+<body class="paginaJuego">
+    <div class="pantallaJuego">
+        <header class="cabeceraJuego">
+            <a href="../home/home.html" class="juegoLogo">
                 <img src="../../imagenes/LOGO.png" alt="Argentum Time Guesser">
             </a>
 
-            <div class="juego-marcadores">
-                <div class="juego-temporizador" id="temporizador-juego">
-                    <time id="tiempo-restante" datetime="PT9M">9:00</time>
+            <div class="marcadores">
+                <div class="reloj" id="temporizadorJuego">
+                    <time id="tiempoRestante" datetime="PT9M">9:00</time>
                 </div>
 
-                <div class="juego-ronda">
+                <div class="ronda">
                     <span>ROUND</span>
-                    <strong id="numero-ronda" aria-live="polite">1/5</strong>
+                    <strong id="numeroRonda" aria-live="polite">1/5</strong>
                 </div>
 
-                <div class="juego-puntos">
+                <div class="puntos">
                     <span>POINTS</span>
-                    <strong id="puntos-juego">0</strong>
+                    <strong id="puntosJuego">0</strong>
                 </div>
             </div>
         </header>
 
-        <main class="juego-principal">
-            <h1 class="solo-lectores">Partida</h1>
-            <div class="juego-tablero">
-                <figure class="juego-fotografia">
-                    <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica" id="imagen-juego">
+        <main class="partida">
+            <h1 class="soloLectores">Partida</h1>
+            <section class="tablero" aria-label="Foto y respuesta">
+                <figure class="fotoRonda">
+                    <img src="../../imagenes/modo casual/cromanon 2008.jpg" alt="Fotografía histórica" id="imagenJuego">
                 </figure>
 
-                <div class="juego-derecha">
-                    <div id="mapa-juego" aria-label="Mapa de Argentina" role="region"></div>
+                <div class="respuesta">
+                    <div id="mapaJuego" aria-label="Mapa de Argentina" role="region"></div>
 
-                    <div class="juego-selector-anio">
-                        <button type="button" id="anio-anterior" aria-label="Año anterior">◀</button>
-                        <output id="anio-elegido" for="barra-anio">2026</output>
-                        <button type="button" id="anio-siguiente" aria-label="Año siguiente">▶</button>
+                    <div class="selectorAnio">
+                        <button type="button" id="anioAnterior" aria-label="Año anterior">◀</button>
+                        <output id="anioElegido" for="barraAnio">2026</output>
+                        <button type="button" id="anioSiguiente" aria-label="Año siguiente">▶</button>
                     </div>
 
-                    <div class="juego-barra-contenedor">
-                        <input type="range" id="barra-anio" aria-label="Año de la fotografía" min="1900" max="2026" value="2026">
+                    <div class="controlAnio">
+                        <input type="range" id="barraAnio" aria-label="Año de la fotografía" min="1900" max="2026" value="2026">
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="juego-parte-inferior">
-                <button type="button" id="continuar-juego" class="juego-boton-continuar">
+            <div class="pieJuego">
+                <button type="button" id="continuarJuego" class="botonContinuar">
                     CONTINUAR
                 </button>
             </div>

@@ -1,10 +1,10 @@
 
-const tiempoSi = document.getElementById("tiempo-si-casual");
-const tiempoNo = document.getElementById("tiempo-no-casual");
-const contenedorTiempo = document.getElementById("tiempo-casual");
-const barraMinutos = document.getElementById("barra-minutos-casual");
-const minutosTexto = document.getElementById("minutos-casual");
-const jugarCasual = document.getElementById("jugar-casual");
+const tiempoSi = document.getElementById("tiempoSi");
+const tiempoNo = document.getElementById("tiempoNo");
+const contenedorTiempo = document.getElementById("tiempoCasual");
+const barraMinutos = document.getElementById("barraMinutos");
+const minutosTexto = document.getElementById("minutosCasual");
+const jugarCasual = document.getElementById("jugarCasual");
 
 let conTiempo = true;
 
@@ -42,10 +42,10 @@ jugarCasual.addEventListener("click", function() {
     sessionStorage.removeItem("errorPuntaje");
 });
 
-const crearDesafio = document.getElementById("crear-desafio");
-const invitacion = document.getElementById("invitacion-desafio");
-const enlaceAmigo = document.getElementById("enlace-amigo");
-const estadoDesafio = document.getElementById("estado-desafio");
+const crearDesafio = document.getElementById("crearDesafio");
+const invitacion = document.getElementById("invitacionDesafio");
+const enlaceAmigo = document.getElementById("enlaceAmigo");
+const estadoDesafio = document.getElementById("estadoDesafio");
 
 function enlaceDeJuego(codigo) {
     const enlace = new URL("../juego/juego.html", window.location.href);
@@ -53,36 +53,36 @@ function enlaceDeJuego(codigo) {
     return enlace.href;
 }
 
-crearDesafio.addEventListener("click", async function() {
+crearDesafio.addEventListener("click", function() {
     crearDesafio.disabled = true;
     invitacion.hidden = true;
     estadoDesafio.textContent = "Creando desafío...";
 
-    try {
-        const servidor = "http://" + window.location.hostname + ":3000";
-        const respuesta = await fetch(servidor + "/api/desafios", { method: "POST" });
+    const servidor = "http://" + window.location.hostname + ":3000";
+    return fetch(servidor + "/api/desafios", { method: "POST" }).then(async function(respuesta) {
         const datos = await respuesta.json();
         if (!respuesta.ok) throw new Error(datos.error);
 
         enlaceAmigo.value = enlaceDeJuego(datos.enlace);
-        document.getElementById("jugar-desafio").href = enlaceAmigo.value;
-        document.getElementById("aviso-local").hidden =
+        document.getElementById("jugarDesafio").href = enlaceAmigo.value;
+        document.getElementById("avisoLocal").hidden =
             window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1";
         invitacion.hidden = false;
         estadoDesafio.textContent = "";
-    } catch (error) {
+    }).then(undefined, function() {
         estadoDesafio.textContent = "No se pudo crear el desafío. Revisá que el servidor esté abierto.";
-    } finally {
+    }).finally(function() {
         crearDesafio.disabled = false;
-    }
+    });
 });
 
-document.getElementById("copiar-desafio").addEventListener("click", async function() {
-    try {
-        await navigator.clipboard.writeText(enlaceAmigo.value);
+document.getElementById("copiarDesafio").addEventListener("click", function() {
+    return Promise.resolve().then(function() {
+        return navigator.clipboard.writeText(enlaceAmigo.value);
+    }).then(function() {
         estadoDesafio.textContent = "Enlace copiado.";
-    } catch {
+    }, function() {
         enlaceAmigo.select();
         estadoDesafio.textContent = "Copiá el enlace seleccionado.";
-    }
+    });
 });

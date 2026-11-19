@@ -1,11 +1,11 @@
 
-const formulario = document.getElementById("formulario-login");
+const formulario = document.getElementById("formularioLogin");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const mensaje = document.getElementById("mensaje-login");
-const boton = document.getElementById("boton-login");
-const cambiar = document.getElementById("cambiar-login");
-const titulo = document.getElementById("titulo-login");
+const mensaje = document.getElementById("mensajeLogin");
+const boton = document.getElementById("botonLogin");
+const cambiar = document.getElementById("cambiarLogin");
+const titulo = document.getElementById("tituloLogin");
 
 const API = window.location.port === "3000" ? window.location.origin : "http://localhost:3000";
 
@@ -32,27 +32,25 @@ cambiar.addEventListener("click", function() {
     mostrarFormulario();
 });
 
-formulario.addEventListener("submit", async function(evento) {
+formulario.addEventListener("submit", function(evento) {
     evento.preventDefault();
 
     mensaje.textContent = "";
-    mensaje.classList.remove("mensaje-exito");
+    mensaje.classList.remove("mensajeExito");
     boton.disabled = true;
 
     const ruta = registro ? "/api/registro" : "/api/login";
 
-    try {
-        const respuesta = await fetch(API + ruta, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: email.value.trim(),
-                password: password.value
-            })
-        });
-
+    return fetch(API + ruta, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email.value.trim(),
+            password: password.value
+        })
+    }).then(async function(respuesta) {
         const datos = await respuesta.json();
 
         if (!respuesta.ok) {
@@ -65,7 +63,7 @@ formulario.addEventListener("submit", async function(evento) {
             mostrarFormulario();
             password.value = "";
             mensaje.textContent = "Cuenta creada. Ahora iniciá sesión.";
-            mensaje.classList.add("mensaje-exito");
+            mensaje.classList.add("mensajeExito");
             return;
         }
 
@@ -79,15 +77,14 @@ formulario.addEventListener("submit", async function(evento) {
         } else {
             window.location.href = "../home/home.html";
         }
-
-    } catch (error) {
+    }).then(undefined, function() {
         mensaje.textContent = "No se pudo conectar con el servidor.";
-    } finally {
+    }).finally(function() {
         boton.disabled = false;
-    }
+    });
 });
 
-const cerrarSesion = document.getElementById("cerrar-sesion");
+const cerrarSesion = document.getElementById("cerrarSesion");
 const tokenActual = sessionStorage.getItem("tokenSesion");
 cerrarSesion.hidden = !tokenActual;
 
@@ -96,7 +93,7 @@ cerrarSesion.addEventListener("click", function() {
         method: "POST",
         headers: { Authorization: "Bearer " + tokenActual },
         keepalive: true
-    }).catch(function() {});
+    }).then(undefined, function() {});
     sessionStorage.removeItem("tokenSesion");
     sessionStorage.removeItem("usuario");
     window.location.href = "../home/home.html";
